@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <form name="form" method="get" action="{% url 'displayDrug' %}">
+        <label for='name'>Enter the drug name:</label>
+        <input type="text" name='name' id='drugname'>
+        <br><br>
+        <label for='is_opiate'>Enter if drug is Opioid (TRUE/FALSE):</label>
+        <input type="text" name='is_opiate' id='isopioid'>
+        <br><br>
+        <button type="submit">Search</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <form name="form" method="get" action="{% url 'displayPrescriber' %}">
+        <h2>Search For A Prescriber</h2>
+        <!-- first name --> 
+        <label for='first_name'>Enter the first name:</label>
+        <input type="text" name='first_name' id='fname'>
+        <br><br>
+        <!-- last name --> 
+        <label for='last_name'>Enter the last name:</label>
+        <input type="text" name='last_name' id='lname'>
+        <br><br>
+        <!-- gender --> 
+        <label for='prescriber_gender'>Enter the gender:</label>
+        <input type="text" name='prescriber_gender' id='gender'>
+        <br><br>
+        <!-- credentials --> 
+        <label for='prescriber_credentials'>Enter the credentials:</label>
+        <input type="text" name='prescriber_credentials' id='credentials'>
+        <br><br>
+        <!-- location --> 
+        <label for='location'>Enter the State:</label>
+        <input type="text" name='location' id='state'>
+        <br><br>
+        <!-- specialty --> 
+        <label for='prescriber_specialty'>Enter the last name:</label>
+        <input type="text" name='prescriber_specialty' id='specialty'>
+        <br><br>
+        <button type="submit">Search</button>
+    </form>
+{% endblock %}
