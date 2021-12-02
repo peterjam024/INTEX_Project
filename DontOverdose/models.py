@@ -55,7 +55,7 @@ class Prescriber (models.Model):
     state = models.CharField(max_length=2)
     credentials = models.CharField(max_length=20)
     specialty = models.CharField(max_length=62)
-    ispioidprescriber = models.CharField(max_length=5)
+    isopioidprescriber = models.CharField(max_length=5)
     totalprescriptions = models.IntegerField()
 
     # This links THIS model to the database table (:
@@ -71,9 +71,10 @@ class Prescriber (models.Model):
         return self.fname + " " + self.lname
 
 
-########################################## pd_Prescriber_updated ###################################################
+########################################## THIS IS THE triple ###################################################
 # --> still need to make new table
-# data is all correct though!!
+# this shows the type of drug and how much of each drug was adminsiterd
+# not shown on any other table
 
 # class Triple (models.Model):
 #     # don't need to make id, becuase python will do it= autogenerates!
