@@ -5,8 +5,7 @@ from django.db import models
 
 ########################################## pd_drugs ###################################################
 class Drugs(models.Model):
-    # don't need to make id, becuase python will do it= autogenerates!
-    drugid = models.IntegerField()
+    drugid = models.IntegerField(primary_key=True)
     drugname = models.CharField(max_length=30)
     isopioid = models.CharField(max_length=5)
 
@@ -25,11 +24,11 @@ class Drugs(models.Model):
 
 ########################################## pd_StateData ###################################################
 class State(models.Model):
-    # don't need to make id, becuase python will do it= autogenerates!
-    state = models.CharField(max_length=14)
+    state = models.CharField(max_length=14, primary_key=True)
     stateabbrev = models.CharField(max_length=2)
     population = models.IntegerField()
     deaths = models.IntegerField()
+    populationpc = models.DecimalField(max_digits=11, decimal_places=9)
 
     # This links THIS model to the database table (:
     # python will automatically do this, but this just makes SURE and will override what python automatically does
@@ -47,13 +46,12 @@ class State(models.Model):
 ########################################## pd_Prescriber_info ###################################################
 # THIS HAS NO DATABASE YET, do not use --> still need to make new table
 class Prescriber (models.Model):
-    # don't need to make id, becuase python will do it= autogenerates!
-    npi = models.IntegerField()
+    npi = models.IntegerField(primary_key=True)
     fname = models.CharField(max_length=11)
     lname = models.CharField(max_length=11)
-    gender = models.CharField(max_length=2)
+    gender = models.CharField(max_length=1)
     state = models.CharField(max_length=2)
-    credentials = models.CharField(max_length=20)
+    credentials = models.CharField(max_length=7)
     specialty = models.CharField(max_length=62)
     isopioidprescriber = models.CharField(max_length=5)
     totalprescriptions = models.IntegerField()
@@ -62,7 +60,7 @@ class Prescriber (models.Model):
     # python will automatically do this, but this just makes SURE and will override what python automatically does
 
     class Meta:
-        db_table = "pd_prescriber"
+        db_table = "pd_prescriber_info"
 
     # ACCESS DATA--> if try to look at a single record, we are going to return the description
     # the description= the description field from the table

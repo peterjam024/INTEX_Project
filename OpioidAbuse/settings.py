@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'OpioidAbuse.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "intex_test",
+        "NAME": "intex",
         "USER": "postgres",
         "PASSWORD": "jazz0905",
         "HOST": "localhost",
