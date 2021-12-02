@@ -24,6 +24,23 @@ def aboutPageView(request):
     # OLD WAY return HttpResponse("I am the about page!")
     return render(request, "dontoverdose/about.html")
 
+
+def showAllDrugsPageView(request):
+    drug_list = Drugs.objects.all()
+    context = {
+        'drug_list': drug_list,
+    }
+    return render(request, "dontoverdose/allDrugs.html", context)
+
+
+def showAllPrescribersPageView(request):
+    prescriber_list = Prescriber.objects.all()
+    context = {
+        'prescriber_list': prescriber_list,
+    }
+    return render(request, "dontoverdose/allPrescribers.html", context)
+
+
 # DISPLAY search forms
 
 

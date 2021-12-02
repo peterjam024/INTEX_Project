@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block content %}
+<div class="row padding">
+    <div class="column">
+        <h1>DRUGS</h1>
+    </div>
+</div>
+    
+
+<br>
+<br>
+<h2>This shows all of the drugs RAW</h2>
+<div >
+    {% for drug in drug_list %}
+    <p>
+        {{drug.drugname}}
+        {{drug.isopioid}}
+    </p>
+    {% endfor %}
+</div> 
+
+<br><br>
+
+<div>
+    <table>
+        <tr>
+            <td><form action=" /addDrink" method="GET">
+                <input type="submit" value="Add New Drink">
+                </form>
+            </td>
+            <td>
+                <form action="/logout" method="POST">
+                    <input type="submit" value="Logout">
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <br><br>
+    <h2>This shows all of the drugs more organized</h2>
+    <table>
+        <tr>
+            <th></th>
+            <th>Drug Name</th>
+            <th></th>
+            <th>Is Opioid?</th>
+            {% comment %} <th>Price</th> {% endcomment %} 
+        </tr>
+
+                   
+        <tr>
+            <td>
+                <input type="button" value="Edit" onclick="editItem(<%=expressVar[i].drinkID%>)">
+                <!-- <%=expressVar[i].vehicle_id%> -->
+            </td>
+            <td style="text-align: center;">
+                {% for drug in drug_list %}
+                <p>
+                    {{drug.drugname}}
+                   
+                </p>
+                {% endfor %}
+            </td>
+            <td></td>
+            <td style="text-align: center;">
+                {% for drug in drug_list %}
+                <p>
+                   
+                    {{drug.isopioid}}
+                </p>
+                {% endfor %}
+            </td>
+            {% comment %} <td style="text-align: center;">
+                <%=expressVar[i].drinkIngredients%>
+            </td>
+            <td>
+                <%=expressVar[i].drinkPrice%>
+            </td>
+            <td> <input type="button" value="Delete"
+                    onclick="deleteItem(<%=expressVar[i].drinkID%>,'<%=expressVar[i].drinkName%>')">
+            </td> {% endcomment %}
+        </tr>
+                           
+    </table>
+
+</div>
+{%endblock%}

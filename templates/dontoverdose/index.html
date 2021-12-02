@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block content %}
+<div class="row padding">
+    <div class="column">
+        <h1>HOME</h1>
+    </div>
+</div>
+    
+
+<br>
+<br>
+<h2>Welcome to Our Home page!</h2>
+<div class="row padding">
+    <div class="column">
+        <a class="nav-link" href="{% url 'allDrugs'  %}"><button>Show All Drugs</button></a>
+    </div>
+    <div class="column">
+        <a class="nav-link" href="{% url 'allPrescribers' %}"><button>Show All Prescribers</button></a>
+    </div>
+    <div class="column">
+        <a class="nav-link" href="{% url 'searchPrescriber' %}"><button>Find A Prescriber</button></a>
+    </div>
+    <div class="column">
+        <a class="nav-link" href="{% url 'searchDrug' %}"><button>Find A Drug</button></a>
+    </div>
+    
+</div>
+
+{%endblock%}
