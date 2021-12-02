@@ -4,9 +4,11 @@ from django.db import models
 
 
 ########################################## pd_drugs ###################################################
+# good!
+# still need to add to TRIPLE
 class Drugs(models.Model):
-    drugid = models.IntegerField(primary_key=True)
-    drugname = models.CharField(max_length=30)
+    drugid = models.IntegerField()
+    drugname = models.CharField(max_length=30, primary_key=True)
     isopioid = models.CharField(max_length=5)
 
     # This links THIS model to the database table (:
@@ -23,9 +25,12 @@ class Drugs(models.Model):
 
 
 ########################################## pd_StateData ###################################################
+# good on both this and prescriber
+# still need to add to TRIPLE
+
 class State(models.Model):
-    state = models.CharField(max_length=14, primary_key=True)
-    stateabbrev = models.CharField(max_length=2)
+    state = models.CharField(max_length=14)
+    stateabbrev = models.CharField(max_length=2, primary_key=True)
     population = models.IntegerField()
     deaths = models.IntegerField()
     populationpc = models.DecimalField(max_digits=11, decimal_places=9)
@@ -44,13 +49,14 @@ class State(models.Model):
 
 
 ########################################## pd_Prescriber_info ###################################################
-# THIS HAS NO DATABASE YET, do not use --> still need to make new table
+# good on this and the state
 class Prescriber (models.Model):
     npi = models.IntegerField(primary_key=True)
     fname = models.CharField(max_length=11)
     lname = models.CharField(max_length=11)
     gender = models.CharField(max_length=1)
-    state = models.CharField(max_length=2)
+    state = models.ForeignKey(
+        'State', null=True, blank=True, on_delete=models.SET_NULL)
     credentials = models.CharField(max_length=7)
     specialty = models.CharField(max_length=62)
     isopioidprescriber = models.CharField(max_length=5)
@@ -74,20 +80,22 @@ class Prescriber (models.Model):
 # this shows the type of drug and how much of each drug was adminsiterd
 # not shown on any other table
 
-# class Triple (models.Model):
-#     # don't need to make id, becuase python will do it= autogenerates!
-#     npi = models.BigIntegerField()
-#     drugname = models.CharField(max_length=40)
-#     qtyprescribed = models.IntegerField()
+class Triple (models.Model):
+    # don't need to make id, becuase python will do it= autogenerates!
+    npi = models.ForeignKey(
+        'Prescriber', null=True, blank=True, on_delete=models.SET_NULL)
+    drugname = models.ForeignKey(
+        'Drugs', null=True, blank=True, on_delete=models.SET_NULL)
+    qtyprescribed = models.IntegerField()
 
-#     # This links THIS model to the database table (:
-#     # python will automatically do this, but this just makes SURE and will override what python automatically does
+    # This links THIS model to the database table (:
+    # python will automatically do this, but this just makes SURE and will override what python automatically does
 
-#     class Meta:
-#         db_table = "pd_prescriber_updated"
+    class Meta:
+        db_table = "pd_triple"
 
-#     # ACCESS DATA--> if try to look at a single record, we are going to return the description
-#     # the description= the description field from the table
-#     # This is what is going to be displayed to the ADMIN!!
-#     def __str__(self):
-#         return self.NPI + " " + self.DrugName + " " + self.QtyPrescribed
+    # ACCESS DATA--> if try to look at a single record, we are going to return the description
+    # the description= the description field from the table
+    # This is what is going to be displayed to the ADMIN!!
+    def __str__(self):
+        return self.npi + " " + self.drugname + " " + self.qtyprescribed
