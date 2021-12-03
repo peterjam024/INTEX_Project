@@ -170,4 +170,4 @@ def updatePrescriber(request):
         # Save the changes
         prescriber.save()
 
-    return showSinglePrescriberPageView(request, 1234)
+    return showAllPrescribersPageView(request)

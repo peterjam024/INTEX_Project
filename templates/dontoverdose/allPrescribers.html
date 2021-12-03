@@ -43,7 +43,7 @@
         {% for prescriber in prescriber_list %}           
             <tr>
                 <td>
-                    <a href="{% url 'singlePrescriber' NPI='1234' %}"><button>Edit</button></a>
+                    <a href="{% url 'singlePrescriber' NPI=prescriber.npi %}"><button>Edit</button></a>
                 </td>
                 <td style="text-align: center;">
                     {{prescriber.npi}}
