@@ -2,7 +2,7 @@
 # import requests
 
 # NEED TO IMPORT MODELS INTO VIEW FUNCTIONS
-from .models import Prescriber, Drugs
+from .models import Prescriber, Drugs, Triple
 
 ###### import models ########
 # from travelSites.models import em
@@ -71,14 +71,18 @@ def displayPrescriberPageView(request):
 
     data = Prescriber.objects.filter(
         npi=iNPI, fname=sFirst, lname=sLast, gender=sGender, credentials=sCredentials, state=sLocation, specialty=sSpecialty, isopioidprescriber=sIsOpioid, totalprescriptions=iTotal)
+    data2 = Triple.objects.values_list('npi', 'drugname', 'qtyprescribed')
 
     if data.count() > 0:
         context = {
-            "our_prescribers": data
+            "our_prescribers": data,
+            "our_drugs" : data2
         }
         return render(request, 'dontoverdose/displayPrescriber.html', context)
     else:
         return HttpResponse("Not found")
+
+    
 
 # SEARCHES FOR DRUGS #####################
 

@@ -15,6 +15,21 @@
         {{prescriber.totalprescriptions}}
     </p>
     {%endfor%}
+
+
+    {% for triple in our_drugs %}
+    <p>
+
+        {% if  prescriber.npi == triple.npi %}
+
+            {{triple.drugname}}
+            {{triple.qtyprescribed}}
+
+        {% endif %}    
+    </p>
+    {% endfor %}
+
+    
 </div>
 {% endblock %}
 
