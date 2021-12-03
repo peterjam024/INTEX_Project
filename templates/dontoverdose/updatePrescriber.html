@@ -70,8 +70,19 @@
             </tr>
         </table>
         <br><br>
-        <input type="submit" value="Update">
+        <table>
+            <tr>
+                <td>
+                    <input type="submit" value="Update">
+                </td>
+                <td>
+                    <form name="form" method="get" action="{% url 'allPrescribers' %}">
+                    <input type="submit" value="Cancel">
+                    </form>
+                </td>
+            </tr>
+        </table>
     </form>
-
+    
 
 {% endblock %}

@@ -14,8 +14,8 @@ from django.shortcuts import render
 # this view function needs to send the RESPONSE
 from django.http import HttpResponse
 
-# HERE, I need to import the HTML page that I want and then i can return it LATER
-# import index.html from travelPages
+# redeirect fucntion
+from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -169,5 +169,15 @@ def updatePrescriber(request):
 
         # Save the changes
         prescriber.save()
+
+    return showAllPrescribersPageView(request)
+
+
+# delete a prescriber
+def deletePrescriber(request, NPI):
+    data = Prescriber.objects.get(npi=NPI)
+    # ARE YOU SURE FUCNTION
+    # IF STATEMENT= if the NPI doesn't exist, redirects
+    data.delete()
 
     return showAllPrescribersPageView(request)

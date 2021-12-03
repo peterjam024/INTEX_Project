@@ -72,6 +72,9 @@
                 <td style="text-align: center;">
                     {{prescriber.totalprescriptions}}
                 </td>
+                <td>
+                    <a href="{% url 'deletePrescriber' NPI=prescriber.npi %}"><button>Delete</button></a>
+                </td>
         {% endfor %}        
 </div>
 {%endblock%}
