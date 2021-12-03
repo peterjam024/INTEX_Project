@@ -9,17 +9,12 @@
 
 <br><br>
 
-<div>
+<div class="centered">
     <table>
         <tr>
             <td>
                 <form name="form" method="get" action="{% url 'addPrescriber' %}">
                 <input type="submit" value="Add New Prescriber">
-                </form>
-            </td>
-            <td>
-                <form action="/logout" method="POST">
-                    <input type="submit" value="Logout">
                 </form>
             </td>
         </tr>
@@ -35,7 +30,7 @@
             <th>Gender</th>
             <th>State</th> 
             <th>Credentials</th> 
-            <th>Specialty</th>
+            <th style="text-align: center;">Specialty</th>
             <th>Is Opioid Prescriber?</th> 
             <th>Total Prescriptions</th>  
         </tr>
