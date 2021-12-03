@@ -4,13 +4,17 @@
 <div >
     {% for prescriber in our_prescribers %}
     <p>  
+        {{ prescriber.npi }}
         {{ prescriber.fname }}
         {{ prescriber.lname }}
         {{ prescriber.gender }}
         {{ prescriber.credentials }}
         {{ prescriber.state }}
         {{ prescriber.specialty }}
+        {{prescriber.isopioidprescriber}}
+        {{prescriber.totalprescriptions}}
     </p>
+    {%endfor%}
 </div>
 {% endblock %}
 

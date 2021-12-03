@@ -6,31 +6,15 @@
         <h1>ALL PRESCRIBERS</h1>
     </div>
 </div>
-    
-
-<br>
-<br>
-<h2>This shows all of our prescribers from the database RAW</h2>
-<div >
-    {% for prescriber in prescriber_list %}
-    <p>
-        {{prescriber.fname }}
-        {{prescriber.lname }}
-        {{prescriber.gender }}
-        {{prescriber.state }}
-        {{prescriber.credentials }}
-        {{prescriber.specialty }}
-    </p>
-    {% endfor %}
-</div> 
 
 <br><br>
 
 <div>
     <table>
         <tr>
-            <td><form action=" /addDrink" method="GET">
-                <input type="submit" value="Add New Drink">
+            <td>
+                <form name="form" method="get" action="{% url 'addPrescriber' %}">
+                <input type="submit" value="Add New Prescriber">
                 </form>
             </td>
             <td>
@@ -42,66 +26,52 @@
     </table>
 
     <br><br>
-    <h2>This shows all of the prescribers more organized</h2>
     <table>
         <tr>
             <th></th>
+            <th>NPI</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Gender</th>
             <th>State</th> 
             <th>Credentials</th> 
-            <th>Specialty</th> 
+            <th>Specialty</th>
+            <th>Is Opioid Prescriber?</th> 
+            <th>Total Prescriptions</th>  
         </tr>
 
-                   
-        <tr>
-            <td>
-                <input type="button" value="Edit" onclick="editItem(<%=expressVar[i].drinkID%>)">
-                <!-- <%=expressVar[i].vehicle_id%> -->
-            </td>
-            <td style="text-align: center;">
-                {% for prescriber in prescriber_list %}
-                <p>
-                    {{prescriber.fname}}
-                </p>
-                {% endfor %}
-            </td>
-            <td style="text-align: center;">
-                {% for prescriber in prescriber_list %}
-                <p>
-                    {{prescriber.lname}}
-                </p>
-                {% endfor %}
-            </td>
-            <td style="text-align: center;">
-                {% for prescriber in prescriber_list %}
-                <p>
-                    {{prescriber.gender}}
-                </p>
-                {% endfor %}
-            </td>
-            <td style="text-align: center;">
-                {% for prescriber in prescriber_list %}
-                <p>
-                    {{prescriber.state}}
-                </p>
-                {% endfor %}
-            </td>
-            <td style="text-align: center;">
-                {% for prescriber in prescriber_list %}
-                <p>
-                    {{prescriber.credentials}}
-                </p>
-                {% endfor %}
-            </td>
-            <td style="text-align: center;">
-                {% for prescriber in prescriber_list %}
-                <p>
-                    {{prescriber.specialty}}
-                </p>
-                {% endfor %}
-            </td>
-            
+        {% for prescriber in prescriber_list %}           
+            <tr>
+                <td>
+                    <a href="{% url 'singlePrescriber' NPI='1234' %}"><button>Edit</button></a>
+                </td>
+                <td style="text-align: center;">
+                    {{prescriber.npi}}
+                </td>
+                <td style="text-align: center;">
+                        {{prescriber.fname}}
+                </td>
+                <td style="text-align: center;">
+                        {{prescriber.lname}}
+                </td>
+                <td style="text-align: center;">
+                        {{prescriber.gender}}
+                </td>
+                <td style="text-align: center;">
+                        {{prescriber.state}}
+                </td>
+                <td style="text-align: center;">
+                        {{prescriber.credentials}}
+                </td>
+                <td style="text-align: center;">
+                        {{prescriber.specialty}}
+                </td>
+                <td style="text-align: center;">
+                    {{prescriber.isopioidprescriber}}
+                </td>
+                <td style="text-align: center;">
+                    {{prescriber.totalprescriptions}}
+                </td>
+        {% endfor %}        
 </div>
 {%endblock%}

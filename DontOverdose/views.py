@@ -1,3 +1,6 @@
+# import requests
+# import requests
+
 # NEED TO IMPORT MODELS INTO VIEW FUNCTIONS
 from .models import Prescriber, Drugs
 
@@ -56,15 +59,18 @@ def searchDrugPageView(request):
 
 
 def displayPrescriberPageView(request):
+    iNPI = request.GET['NPI']
     sFirst = request.GET['first_name']
     sLast = request.GET['last_name']
     sGender = request.GET['prescriber_gender']
     sCredentials = request.GET['prescriber_credentials']
     sLocation = request.GET['location']
-    sSpecialty = request.GET['last_name']
+    sSpecialty = request.GET['prescriber_specialty']
+    sIsOpioid = request.GET['opioid_dude?']
+    iTotal = request.GET['total']
 
     data = Prescriber.objects.filter(
-        fname=sFirst, lname=sLast, gender=sGender, credentials=sCredentials, state=sLocation, specialty=sSpecialty)
+        npi=iNPI, fname=sFirst, lname=sLast, gender=sGender, credentials=sCredentials, state=sLocation, specialty=sSpecialty, isopioidprescriber=sIsOpioid, totalprescriptions=iTotal)
 
     if data.count() > 0:
         context = {
@@ -90,54 +96,78 @@ def displayDrugPageView(request):
     else:
         return HttpResponse("Not found")
 
-
-# def empPageView(request):
-#     data = Employee.objects.all()
-
-#     context = {
-#         "our_emps": data
-#     }
-#     return render(request, 'homepages/displayEmps.html', context)
+# this will pull up the ADD PRESCRIBER page
 
 
-# def aboutPageDataView(request, trip_name, trip_length):
-#     # new way to render
-#     context = {
-#         "trip_name": trip_name,
-#         "trip_length": trip_length + 2,
-#         "places_to_visit": [
-#             "Arenal Volcano",
-#             "Manual Antonio National Park",
-#             "Monteverde Cloud Forest",
-#         ],
-#     }
+def addPrescriberPageView(request):
+    return render(request, "dontoverdose/addPrescriber.html")
 
-#     return render(request, "travelPages/aboutData.html", context)
+#### this is going to actually save the prescriber to the database when submitted!!!#####
 
 
-# def displayStudentView(request):
-#     data = Student.objects.all()
-#     lookup = Grade_Level.objects.all()
+def storePrescriberPageView(request):
+    # Check to see if the form method is a get or post
+    if request.method == 'POST':
 
-#     # dictionary data
-#     context = {"our_students": data, "grades": lookup}
+        # Create a new employee object from the model (like a new record)
+        new_prescriber = Prescriber()
 
-#     return render(request, "travelPages/displayStudents.html", context)
+        # Store the data from the form to the new object's attributes (like columns)
+        new_prescriber.npi = request.POST.get('NPI')
+        new_prescriber.fname = request.POST.get('first_name')
+        new_prescriber.lname = request.POST.get('last_name')
+        new_prescriber.gender = request.POST.get('prescriber_gender')
+        new_prescriber.state = request.POST.get('location')
+        new_prescriber.credentials = request.POST.get('prescriber_credentials')
+        new_prescriber.specialty = request.POST.get('prescriber_specialty')
+        new_prescriber.isopioidprescriber = request.POST.get('opioid_dealer')
+        new_prescriber.totalprescriptions = request.POST.get('total')
+
+        # Save the employee record
+        new_prescriber.save()
+
+    # Make a list of all of the employee records and store it to the variable
+    data = Prescriber.objects.all()
+
+    # Assign the list of employee records to the dictionary key "our_emps"
+    context = {
+        "our_prescribers": data
+    }
+    # r = requests.post('')
+    return render(request, 'dontoverdose/displayPrescriber.html', context)
 
 
-# def searchEmpPageView(request):
-#     sFirst = request.GET["first_name"]
-#     sLast = request.GET["last_name"]
-#     # data = Employee.objects.filter(emp_first=sFirst, emp_last=sLast)
-#     # filter method LIMITS records, whereas the ALL gets all the records
+###### trying to edit and delete ########
+def showSinglePrescriberPageView(request, NPI):
+    data = Prescriber.objects.get(npi=NPI)
 
-#     # using query tool --> this is HUGE for intex!!
-#     # need to se id!!
-#     # sQuery= the first statement returns ALL
-#     # if --> this filters
-#     # after data= Student.obejcts.raw (sQuery)
-#     # if data.count() > 0:
-#     #     context = {"our_emps": data}
-#     #     return render(request, "homepages/displayEmps.html", context)
-#     # else:
-#     #     return HttpResponse("Not found")
+    context = {
+        "prescriber": data
+    }
+    return render(request, 'dontoverdose/updatePrescriber.html', context)
+
+##### editing a specific prescriber ########
+
+
+def updatePrescriber(request):
+    if request.method == 'POST':
+        iNPI = request.POST['NPI']
+
+        # Find the employee record
+        prescriber = Prescriber.objects.get(npi=iNPI)
+
+        # Modify the employee last name with a new value from the form
+        prescriber.npi = iNPI
+        prescriber.fname = request.POST['first_name']
+        prescriber.lname = request.POST['last_name']
+        prescriber.gender = request.POST['prescriber_gender']
+        prescriber.state = request.POST['location']
+        prescriber.credentials = request.POST['prescriber_credentials']
+        prescriber.specialty = request.POST['prescriber_specialty']
+        prescriber.isopioidprescriber = request.POST['opioid_dealer']
+        prescriber.totalprescriptions = request.POST['total']
+
+        # Save the changes
+        prescriber.save()
+
+    return showSinglePrescriberPageView(request, 1234)

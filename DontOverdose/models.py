@@ -55,8 +55,8 @@ class Prescriber (models.Model):
     fname = models.CharField(max_length=11)
     lname = models.CharField(max_length=11)
     gender = models.CharField(max_length=1)
-    state = models.ForeignKey(
-        'State', null=True, blank=True, on_delete=models.SET_NULL)
+    # state = models.ForeignKey( 'State', null=True, blank=True, on_delete=models.SET_NULL)
+    state = models.CharField(max_length=2)
     credentials = models.CharField(max_length=7)
     specialty = models.CharField(max_length=62)
     isopioidprescriber = models.CharField(max_length=5)
@@ -82,10 +82,12 @@ class Prescriber (models.Model):
 
 class Triple (models.Model):
     # don't need to make id, becuase python will do it= autogenerates!
-    npi = models.ForeignKey(
-        'Prescriber', null=True, blank=True, on_delete=models.SET_NULL)
-    drugname = models.ForeignKey(
-        'Drugs', null=True, blank=True, on_delete=models.SET_NULL)
+    # npi = models.ForeignKey(
+    #     'Prescriber', null=True, blank=True, on_delete=models.SET_NULL)
+    # drugname = models.ForeignKey(
+    #     'Drugs', null=True, blank=True, on_delete=models.SET_NULL)
+    npi = models.IntegerField()
+    drugname = models.CharField(max_length=30)
     qtyprescribed = models.IntegerField()
 
     # This links THIS model to the database table (:

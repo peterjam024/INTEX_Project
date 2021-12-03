@@ -9,7 +9,7 @@
     
 
 <br>
-<br>
+{% comment %} <br>
 <h2>This shows all of the drugs RAW</h2>
 <div >
     {% for drug in drug_list %}
@@ -20,7 +20,7 @@
     {% endfor %}
 </div> 
 
-<br><br>
+<br><br> {% endcomment %}
 
 <div>
     <table>
@@ -48,41 +48,40 @@
             {% comment %} <th>Price</th> {% endcomment %} 
         </tr>
 
-                   
-        <tr>
-            <td>
-                <input type="button" value="Edit" onclick="editItem(<%=expressVar[i].drinkID%>)">
-                <!-- <%=expressVar[i].vehicle_id%> -->
-            </td>
-            <td style="text-align: center;">
-                {% for drug in drug_list %}
-                <p>
-                    {{drug.drugname}}
-                   
-                </p>
-                {% endfor %}
-            </td>
-            <td></td>
-            <td style="text-align: center;">
-                {% for drug in drug_list %}
-                <p>
-                   
-                    {{drug.isopioid}}
-                </p>
-                {% endfor %}
-            </td>
-            {% comment %} <td style="text-align: center;">
-                <%=expressVar[i].drinkIngredients%>
-            </td>
-            <td>
-                <%=expressVar[i].drinkPrice%>
-            </td>
-            <td> <input type="button" value="Delete"
-                    onclick="deleteItem(<%=expressVar[i].drinkID%>,'<%=expressVar[i].drinkName%>')">
-            </td> {% endcomment %}
-        </tr>
-                           
-    </table>
+        {% for drug in drug_list %}           
+            <tr>
+                <td>
+                    <input type="button" value="Edit" onclick="editItem(<%=expressVar[i].drinkID%>)">
+                    <!-- <%=expressVar[i].vehicle_id%> -->
+                </td>
+                <td style="text-align: center;">
+                    {{drug.drugname}}   
+                </td>
+                <td style="text-align: center;">
+                    {{drug.isopioid}}   
+                </td>
+                {% comment %} <td></td>
+                <td style="text-align: center;">
+                    {% for drug in drug_list %}
+                    <p>
+                    
+                        {{drug.isopioid}}
+                    </p>
+                </td> {% endcomment %}
+                {% comment %} <td style="text-align: center;">
+                    <%=expressVar[i].drinkIngredients%>
+                </td>
+                <td>
+                    <%=expressVar[i].drinkPrice%>
+                </td>
+                <td> <input type="button" value="Delete"
+                        onclick="deleteItem(<%=expressVar[i].drinkID%>,'<%=expressVar[i].drinkName%>')">
+                </td> {% endcomment %}
+            </tr>
+        
+        {% endfor %}
+
+        </table>
 
 </div>
 {%endblock%}

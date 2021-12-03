@@ -2,7 +2,7 @@
 from django.urls import path
 
 # This is accessing the views/funcitons that we wrote on views.py!!
-from .views import displayDrugPageView, displayPrescriberPageView, indexPageView, searchPresriberPageView, showAllDrugsPageView, showAllPrescribersPageView
+from .views import addPrescriberPageView, displayDrugPageView, displayPrescriberPageView,  indexPageView, searchPresriberPageView, showAllDrugsPageView, showAllPrescribersPageView, showSinglePrescriberPageView, storePrescriberPageView, updatePrescriber
 from .views import aboutPageView
 from .views import searchDrugPageView
 # we create the path with this syntax
@@ -18,7 +18,12 @@ urlpatterns = [
     path("searchPrescriber/", searchPresriberPageView, name="searchPrescriber"),
     path("searchDrug/", searchDrugPageView, name="searchDrug"),
     path("allDrugs/", showAllDrugsPageView, name="allDrugs"),
-    path("allPrescribers/", showAllPrescribersPageView, name="allPrescribers")
+    path("allPrescribers/", showAllPrescribersPageView, name="allPrescribers"),
+    path("addPrescriber/", addPrescriberPageView, name="addPrescriber"),
+    path("storePrescriber/", storePrescriberPageView, name="storePrescriber"),
+    path("showPrescriber/<int:NPI>/",
+         showSinglePrescriberPageView, name='singlePrescriber'),
+    path("updatePrescriber/", updatePrescriber, name="updatePrescriber")
 
     # path(
     #     "aboutData/<str:trip_name>/<int:trip_length>",
