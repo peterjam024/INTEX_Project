@@ -17,7 +17,7 @@
     {%endfor%}
 
 
-    {% for triple in our_drugs %}
+    {% comment %} {% for triple in our_drugs %}
     <p>
 
         {% if  prescriber.npi == triple.npi %}
@@ -27,7 +27,7 @@
 
         {% endif %}    
     </p>
-    {% endfor %}
+    {% endfor %} {% endcomment %}
 
     
 </div>
