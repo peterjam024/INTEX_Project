@@ -9,9 +9,19 @@
                 <div class="intro-text">
                   <h1>Drugs</h1>
                   <h3>Real hard stuff to swollow goes here&nbsp;</h3>
-                  <p>Write here till your heart is content</p>
+                  <p>Search for a specific drug below.</p>
+                  {% comment %} <form name="form" id="drugForm" method="get" action="{% url 'displayDrug' %}">
+                    <label for='name'>Enter the drug name:</label>
+                    <br> 
+                    <input type="text" name='name' id='drugname' required autofocus>
+                    <br><br>
+                    <button type="submit">Search</button>
+                    <button type="reset">Clear</button>
+                </form> {% endcomment %}
                 </div>
                 <a class="mybutton" href="{% url 'searchDrug' %}">Find a Drug</a>
+
+                
 
             </div>
             <div class="card">

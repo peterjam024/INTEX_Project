@@ -56,7 +56,12 @@ def searchPresriberPageView(request):
 
 
 def searchDrugPageView(request):
-    return render(request, "dontoverdose/searchDrug.html")
+    drug_list = Drugs.objects.all()
+
+    context = {
+        'drug_list': drug_list,
+    }
+    return render(request, "dontoverdose/searchDrug.html", context)
 
 
 # SEARCHES FOR PRESCRIBERS #
@@ -64,10 +69,12 @@ def searchDrugPageView(request):
 
 def displayPrescriberPageView(request):
     sFirst = request.GET['first_name']
+    sFirstCaptial = sFirst.capitalize()
     sLast = request.GET['last_name']
+    sLastCaptial = sLast.capitalize()
 
     data = Prescriber.objects.filter(
-        fname__contains=sFirst, lname__contains=sLast)
+        fname__contains=sFirstCaptial, lname__contains=sLastCaptial)
     if data.count() > 0:
         context = {
             "our_prescribers": data,

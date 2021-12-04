@@ -1,16 +1,196 @@
+<!--
+    this needs to show the drugs that they have prescribed, and the average number of each type of drug that all prescribers prescribe.
+-->
+
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<br><br><br><br><br><br><br><br>
+
+{% comment %} {% endblock %}
+
+{% extends 'base.html' %}
+{%block content%}
+{%load static %} {% endcomment %}
+<!-- <link href="file:///Macintosh%20HD/Users/Evelyn/Desktop/IS%20403/BigFatLogos/github/INTEX_Project/OpioidAbuse/static/css/our.css" rel="stylesheet" type="text/css"> -->
+
+<br><br><br>
+<section>
+        <div class="parent">
+            <div class="intro">
+                <div class="intro-text">
+                  <h1>Search Results</h1>
+                  {% comment %} <h3>Real hard stuff to swollow goes here&nbsp;</h3> {% endcomment %}
+                  <p>Select the person you want to see more drug results for by clicking the button. </p>
+                </div>
+                <a class="mybutton" href="{% url 'allPrescribers' %}">See all prescribers</a>
+                <br>
+                <a class="mybutton" href="{% url 'searchPrescriber' %}">Find another prescriber</a>
+            </div>
+            <div class="card">
+                <table>
+                    <tr>
+                        {% comment %} <th></th>
+                        <th>NPI</th> {% endcomment %}
+                        <th>Show Average/Drug</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Gender</th>
+                        <th>State</th> 
+                        <th>Credentials</th> 
+                        <th style="text-align: center;">Specialty</th>
+                        <th>Is Opioid Prescriber?</th> 
+                        <th>Total Prescriptions</th> 
+                        
+                    </tr>
+
+        {% for prescriber in our_prescribers %}           
+                    <tr>
+                        {% comment %} <td>
+                            <a class="mybutton2" href="{% url 'singlePrescriber' NPI=prescriber.npi %}">Edit</a>
+                        </td>
+                        <td style="text-align: center;">
+                            {{prescriber.npi}}
+                        </td> {% endcomment %}
+                        <td>
+                            <form name='form' method="get" action = {% url 'show_prescribed_drugs' %}>
+                                <label for='NPI' ></label>
+                                <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}> 
+                                <div class="button2">
+                                    <button type = "submit">Click Me!</button>
+                                </div>
+                            </form>        
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.fname}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.lname}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.gender}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.state}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.credentials}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.specialty}}
+                        </td>
+                        <td style="text-align: center;">
+                            {{prescriber.isopioidprescriber}}
+                        </td>
+                        <td style="text-align: center;">
+                            {{prescriber.totalprescriptions}}
+                        </td>
+                        
+                    </tr>
+        {% endfor %} 
+        </table>
+            </div>
+
+            
+        </div>
+    
+    </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+{%endblock%}
+
+
+<!--
+------------------------------ THIS IS PAST CODE -------------------------------------
+-->
+{% comment %} 
+
+<br><br><br><br>
+
 
 <div class="parent">
-    <div >
-        <a class="nav-link" href="{% url 'allPrescribers' %}"><button>See all prescribers</button></a>
-        <a class="nav-link" href="{% url 'searchPrescriber' %}"><button>Search for another prescriber</button></a>
+    <div>
+        <a class="mybutton" href="{% url 'allPrescribers' %}">See all prescribers</a>
+        <br><br><br>
+        <a class="mybutton" href="{% url 'searchPrescriber' %}">Search for another prescriber</a>
     </div>
     
-    <br><br><br><br>  <br><br>  <br><br>    
-    <div class="card2">
+    <br><br><br>
+    
+        
+            <table>
+                <tr >
+                    {% comment %} <th></th> {% endcomment %}
+                    {% comment %} <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>State</th> 
+                    <th>Credentials</th> 
+                    <th style="text-align: center;">Specialty</th>
+                    <th>Is Opioid Prescriber?</th> 
+                    <th>Total Prescriptions</th> 
+                    <th></th>
+                </tr>
+
+            {% for prescriber in our_prescribers %}           
+                <tr> {% endcomment %}
+                    {% comment %} <td>
+                        <a class="mybutton2" href="{% url 'singlePrescriber' NPI=prescriber.npi %}">Edit</a>
+                    </td> {% endcomment %}
+                    
+                    {% comment %} <td style="text-align: center;">
+                            {{prescriber.fname}}
+                    </td>
+                    <td style="text-align: center;">
+                            {{prescriber.lname}}
+                    </td>
+                    <td style="text-align: center;">
+                            {{prescriber.gender}}
+                    </td>
+                    <td style="text-align: center;">
+                            {{prescriber.state}}
+                    </td>
+                    <td style="text-align: center;">
+                            {{prescriber.credentials}}
+                    </td>
+                    <td style="text-align: center;">
+                            {{prescriber.specialty}}
+                    </td>
+                    <td style="text-align: center;">
+                        {{prescriber.isopioidprescriber}}
+                    </td>
+                    <td style="text-align: center;">
+                        {{prescriber.totalprescriptions}}
+                    </td>
+                    <td>
+                        <form name='form' method="get" action = {% url 'show_prescribed_drugs' %}>
+                            <label for='NPI' ></label>
+                            <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}> 
+                            <div class="column">
+                                <button type = "submit">Show Average Prescribed for Each Drug</button>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %} 
+            </table>
+
+            
+        </div>
+    </div>
+</div> {% endcomment %}
+ 
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <div class="card2">
         <div class="tablesize-p" style="overflow-x:auto;">
             {% for prescriber in our_prescribers %}
             <p >  
@@ -23,7 +203,7 @@
                 {{ prescriber.specialty }}
                 {{prescriber.isopioidprescriber}}
                 {{prescriber.totalprescriptions}}
-                <form name='NPI' method="get" action = {% url 'show_prescribed_drugs' %}>
+                <form name='form' method="get" action = {% url 'show_prescribed_drugs' %}>
                     <label for='NPI' ></label>
                     <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}> 
                     <div class="column">
@@ -32,11 +212,21 @@
                 </form>
 
             </p>
-            {%endfor%}
-        
-            
+            {%endfor%} {% endcomment %}
 
-            {% comment %} {% for triple in our_drugs %}
+
+
+
+
+
+
+
+
+
+
+
+
+        {% comment %} {% for triple in our_drugs %}
             <p>
 
                 {% if  prescriber.npi == triple.npi %}
@@ -48,13 +238,3 @@
             </p>
             {% endfor %} {% endcomment %}
 
-
-        </div>
-    </div>
-</div>
-
-{% endblock %}
-
-<!--
-    this needs to show the drugs that they have prescribed, and the average number of each type of drug that all prescribers prescribe.
--->

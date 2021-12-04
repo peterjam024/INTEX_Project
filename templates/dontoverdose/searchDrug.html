@@ -1,32 +1,57 @@
 {% extends 'base.html' %}
-{% load static %}
+{%load static %}
 {% block content %}
-<br><br><br><br><br>
-   
-{% comment %} Go back to drugs page {% endcomment %}
+<!-- <link href="file:///Macintosh%20HD/Users/Evelyn/Desktop/IS%20403/BigFatLogos/github/INTEX_Project/OpioidAbuse/static/css/our.css" rel="stylesheet" type="text/css"> -->
+<br><br><br><br>
+<section>
+    <a class="mybutton" href="{% url 'allDrugs' %}">All Drugs</a>
 
-    <a class="nav-link" href="{% url 'allDrugs' %}"><button>See all drugs</button></a>
-    <br><br>
-    <div class="row padding">
-        <form name="form" id="drugForm" method="get" action="{% url 'displayDrug' %}">
-            <label for='name'>Enter the drug name:</label>
-            <input type="text" name='name' id='drugname' required>
-            <br><br>
-            {% comment %} <label for='is_opiate'>Enter if drug is Opioid (TRUE/FALSE):</label>
-            <input type="text" name='is_opiate' id='isopioid'>
-            <br><br> {% endcomment %}
-            <button type="submit">Search</button>
-            <button type="reset">Clear</button>
-        </form>
-    </div>   
-    {% comment %} <table>
-        <tr>
-            <td>
-                <a class="nav-link" href="{% url 'allDrugs' %}"><button>Cancel</button></a>
-            </td>
-            <td>
-                <a class="nav-link" href="{% url 'allDrugs' %}"><button>Cancel</button></a>
-            </td>
-        </tr>
-    </table> {% endcomment %}
-{% endblock %}
+        <div class="parent">
+            <div class="intro">
+                <div class="intro-text">
+                  <h1>Drugs</h1>
+                  <h3>Real hard stuff to swollow goes here&nbsp;</h3>
+                  <p>Search for a specific drug below.</p>
+                  <form name="form" id="drugForm" method="get" action="{% url 'displayDrug' %}">
+                    <label for='name'>Enter the drug name:</label>
+                    <br> 
+                    <input type="text" name='name' id='drugname' required autofocus>
+                    <br><br>
+                    {% comment %} <label for='is_opiate'>Enter if drug is Opioid (TRUE/FALSE):</label>
+                    <input type="text" name='is_opiate' id='isopioid'>
+                    <br><br> {% endcomment %}
+                    <button type="submit">Search</button>
+                    <button type="reset">Clear</button>
+                </form>
+                </div>
+
+                
+
+            </div>
+            <div class="card">
+                <table>
+                    <tr>
+                        <th>Drug Name</th>
+                        <th>Opioid?</th>
+                    </tr>
+                    {% for drug in drug_list %}           
+                    <tr>
+                        <td>
+                            {{drug.drugname}}   
+                        </td>
+                        <td>
+                            {{drug.isopioid}}   
+                        </td>
+                    </tr>
+                {% endfor %} 
+        </table>
+            </div>
+
+            
+        </div>
+    
+    </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="wrapper overflow">
+<br><br><br>
+{%endblock%}</div>

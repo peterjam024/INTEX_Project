@@ -6,7 +6,7 @@
 <br><br>
 <a class="mybutton" href="{% url 'allPrescribers' %}">See all Prescribers</a>
 <br><br>
-<div class="row padding">
+<div class="parent">
     <form name="form" method="get" action="{% url 'displayPrescriber' %}">
         <h2>Search For A Prescriber</h2>
         <!-- npi --> 
@@ -45,8 +45,10 @@
         <label for='total'>Total Prescriptions:</label>
         <input type="text" name='total' id='totalprescriptions'>
         <br><br> {% endcomment %}
-        <button type="submit">Search</button>
-        <button type="reset">Clear</button>    
+       
+        <button class="mybutton" type="submit">Search</button>
+        <button class="mybutton" type="reset">Clear</button>
+      
     </form>
 
 </div>  
