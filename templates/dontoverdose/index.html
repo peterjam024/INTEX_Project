@@ -25,13 +25,13 @@
    <h3>Why is this Information Important?&nbsp;</h3>
      <p>Tools For Health Professionals &amp; Governmen Offices&nbsp;&nbsp;</p>
      <br>
-   <a class="mybutton" href="#" role="button" style="text-decoration: none">Our Findings Page</a>
+   <a class="mybutton" href="{% url 'pdf' %}" role="button" style="text-decoration: none">Our Findings Page</a>
  </div>
  <div class="text-center col-md-6 col-12">
    <h3>How Will This Data Help?&nbsp;</h3>
    <p>Opioids &amp; Their Impact on the United States&nbsp;</p>
    <br>
-   <a class="mybutton"href="#" role="button" style="text-decoration: none">Implementation</a>
+   <a class="mybutton"href="{% url 'implementation' %}" role="button" style="text-decoration: none">Implementation</a>
  </div>
 </div>
 </div>
@@ -101,7 +101,7 @@
      
    </div>
    <br>
-   <div class="card">
+   {% comment %} <div class="card">
 
     <div class="card-body">
       <h5 class="card-title">How Can I learn more?&nbsp;&nbsp;</h5>
@@ -112,7 +112,7 @@
     </div>
     <br>
     
-  </div>
+  </div> {% endcomment %}
  </div>
 </div>
 </div>

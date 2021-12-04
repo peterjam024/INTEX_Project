@@ -17,8 +17,26 @@ from django.http import HttpResponse
 # redeirect fucntion
 from django.shortcuts import redirect
 
+import webbrowser
+
 
 # Create your views here.
+def loadOurFindings(request):
+    a_website = "https://docs.google.com/document/d/1kl4OnH6r4-B4LD2-QD5-_3CJ6BoskUCfCL-C9bLug_o/edit?usp=sharing"
+
+    # Open url in a new page (“tab”) of the default browser, if possible
+    webbrowser.open_new_tab(a_website)
+    return render(request, "dontoverdose/index.html")
+
+
+def loadOurImplementation(request):
+    a_website = "https://docs.google.com/document/d/18c007R83f35F1Fvjnq23oXW14-cRxHXsqC50JU3YqR0/edit?usp=sharing"
+
+    # Open url in a new page (“tab”) of the default browser, if possible
+    yes = webbrowser.open_new_tab(a_website)
+    return render(request, "dontoverdose/index.html")
+
+
 def indexPageView(request):
     return render(request, "dontoverdose/index.html")
 
