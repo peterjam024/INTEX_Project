@@ -28,6 +28,10 @@ def aboutPageView(request):
     return render(request, "dontoverdose/about.html")
 
 
+def contactPageView(request):
+    return render(request, "dontoverdose/contact.html")
+
+
 def showAllDrugsPageView(request):
     drug_list = Drugs.objects.all()
     context = {
@@ -59,19 +63,11 @@ def searchDrugPageView(request):
 
 
 def displayPrescriberPageView(request):
-    iNPI = request.GET['NPI']
     sFirst = request.GET['first_name']
     sLast = request.GET['last_name']
-    sGender = request.GET['prescriber_gender']
-    sCredentials = request.GET['prescriber_credentials']
-    sLocation = request.GET['location']
-    sSpecialty = request.GET['prescriber_specialty']
-    sIsOpioid = request.GET['opioid_dude?']
-    iTotal = request.GET['total']
 
-    data = Prescriber.objects.filter(
-        npi=iNPI, fname=sFirst, lname=sLast, gender=sGender, credentials=sCredentials, state=sLocation, specialty=sSpecialty, isopioidprescriber=sIsOpioid, totalprescriptions=iTotal)
-    if data.count() > 0:
+    data = Prescriber.objects.filter(fname__iexact=sFirst, lname__iexact=sLast)
+    if data.count() > 0 :
         context = {
             "our_prescribers": data,
         }
@@ -79,15 +75,17 @@ def displayPrescriberPageView(request):
     else:
         return HttpResponse("Not found")
 
-    
 
 # SEARCHES FOR DRUGS #####################
 
 
 def displayDrugPageView(request):
     name = request.GET['name']
-    opioid_label = request.GET['is_opiate']
-    data = Drugs.objects.filter(drugname=name, isopioid=opioid_label)
+    # opioid_label = request.GET['is_opiate']
+    # , isopioid=opioid_label)
+    # need to make this so it can be lowercase or whatever!!!
+
+    data = Drugs.objects.filter(drugname__iexact=name)
 
     if data.count() > 0:
         context = {
@@ -107,6 +105,10 @@ def addPrescriberPageView(request):
 
 
 def storePrescriberPageView(request):
+    # check that there is data, if not then tell the user!
+    # if new_prescriber.npi is None:
+    # HttpResponse("You need data ")
+
     # Check to see if the form method is a get or post
     if request.method == 'POST':
 
@@ -115,6 +117,7 @@ def storePrescriberPageView(request):
 
         # Store the data from the form to the new object's attributes (like columns)
         new_prescriber.npi = request.POST.get('NPI')
+
         new_prescriber.fname = request.POST.get('first_name')
         new_prescriber.lname = request.POST.get('last_name')
         new_prescriber.gender = request.POST.get('prescriber_gender')

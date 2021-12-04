@@ -1,0 +1,11 @@
+from dontoverdose.models import Prescriber
+
+
+def pageCount(**kwargs):
+    page = kwargs.pop('page', None)
+    count = kwargs.pop('count', None)
+    page = page * count
+    postlist = Prescriber.query.filter(
+        Prescriber.npi.desc()).offset(page).limit(count).all()
+
+    print(postlist)

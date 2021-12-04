@@ -2,12 +2,17 @@
 {% load static %}
 {% block content %}
 <div >
+    <br><br>
+    <a class="nav-link" href="{% url 'allDrugs' %}"><button>See all drugs</button></a>
+    <br><br>
     {% for drug in our_drugs %}
     <p>  
         {{ drug.drugname }}
         {{ drug.isopioid }}
     </p>
     {% endfor%}
+    <a class="nav-link" href="{% url 'searchDrug' %}"><button>Back</button></a>
+
 </div>
 {% endblock %}
 <!--

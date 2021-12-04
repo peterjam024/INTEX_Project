@@ -1,27 +1,57 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div >
-    {% for prescriber in our_prescribers %}
-    <p>  
-        The Doctor {{ prescriber.fname }}
-        {{ prescriber.lname }} is a 
-        {{ prescriber.gender }} and has the credentials
-        {{ prescriber.credentials }} and specializes in 
-        {{ prescriber.specialty }}
-        <form name='NPI' method="get" action = {% url 'show_prescribed_drugs' %}>
-        <label for='NPI' >
-        <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}>
- 
-    </p>
-    {%endfor%}
 
-    <div class="column">
-        <button type = submit>Show Prescribed Drugs</button>
+<div class="parent">
+    <div >
+    <a class="nav-link" href="{% url 'allPrescribers' %}"><button>See all prescribers</button></a>
     </div>
-        </label>
-    </form>
+    
+    <br><br><br><br>    
+    <div class="card2">
+        <div class="tablesize-p" style="overflow-x:auto;">
+            {% for prescriber in our_prescribers %}
+            <p >  
+                {{ prescriber.npi }}
+                {{ prescriber.fname }}
+                {{ prescriber.lname }}
+                {{ prescriber.gender }}
+                {{ prescriber.credentials }}
+                {{ prescriber.state }}
+                {{ prescriber.specialty }}
+                {{prescriber.isopioidprescriber}}
+                {{prescriber.totalprescriptions}}
+                <form name='NPI' method="get" action = {% url 'show_prescribed_drugs' %}>
+                <label for='NPI' >
+                <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}>
+            
+            </p>
+            {%endfor%}
+        
+            <div class="column">
+                <button type = submit>Show Prescribed Drugs</button>
+            </div>
+                </label>
+            </form>
+
+
+            {% comment %} {% for triple in our_drugs %}
+            <p>
+
+                {% if  prescriber.npi == triple.npi %}
+
+                    {{triple.drugname}}
+                    {{triple.qtyprescribed}}
+
+                {% endif %}    
+            </p>
+            {% endfor %} {% endcomment %}
+
+
+        </div>
+    </div>
 </div>
+
 {% endblock %}
 
 <!--
