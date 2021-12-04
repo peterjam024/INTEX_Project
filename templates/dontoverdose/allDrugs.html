@@ -1,28 +1,41 @@
 {% extends 'base.html' %}
 {%load static %}
 {% block content %}
-<div class="topheader">
-    <h1>Drugs</h1>
+<link href="file:///Macintosh%20HD/Users/Evelyn/Desktop/IS%20403/BigFatLogos/github/INTEX_Project/OpioidAbuse/static/css/our.css" rel="stylesheet" type="text/css">
+<br><br><br>
+<section>
+        <div class="parent">
+            <div class="intro">
+                <div class="intro-text">
+                  <h1>Drugs</h1>
+                  <h3>Real hard stuff to swollow goes here&nbsp;</h3>
+                  <p>Write here till your heart is content</p>
+                </div>
+            </div>
+            <div class="card">
+                <table>
+                    <tr>
+                        <th>Drug Name</th>
+                        <th>Opioid?</th>
+                    </tr>
+                    {% for drug in drug_list %}           
+                    <tr>
+                        <td>
+                            {{drug.drugname}}   
+                        </td>
+                        <td>
+                            {{drug.isopioid}}   
+                        </td>
+                    </tr>
+                {% endfor %} 
+        </table>
+            </div>
 
-</div>
-
-<a class="nav-link" href="{% url 'searchDrug' %}"><button>Find A Drug</button></a>
-<br><br>
-  <table class="tablesize">
-        <tr>
             
-            <th style="text-align: center;">Drug Name</th>
-            <th>Is Opioid?</th>
-        </tr>
-        {% for drug in drug_list %} 
-            <td>{{drug.drugname}}</td>
-            <td>{{drug.isopioid}}</td>
-            </tr>
-        {% endfor %} 
-    </table>
-  
-  </div>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>   
-  </body>
-  </html>
-{%endblock%}
+        </div>
+    
+    </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="wrapper overflow">
+<br><br><br>
+{%endblock%}</div>
