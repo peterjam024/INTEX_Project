@@ -8,19 +8,11 @@
 </div>
 
 <br><br>
+<a class="nav-link" href="{% url 'addPrescriber' %}"><button>Add New Prescriber</button></a>
+<a class="nav-link" href="{% url 'searchPrescriber' %}"><button>Find A Prescriber</button></a>
+<br><br>
 
 <div class="centered">
-    <table>
-        <tr>
-            <td>
-                <form name="form" method="get" action="{% url 'addPrescriber' %}">
-                <input type="submit" value="Add New Prescriber">
-                </form>
-            </td>
-        </tr>
-    </table>
-
-    <br><br>
     <table>
         <tr>
             <th></th>
