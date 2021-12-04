@@ -68,10 +68,6 @@ html, body {
     top: 8%;
     right:2%
 }
-}
-.searchbar box{
-
-}
 .catch{
     position: relative;
     z-index: 10;
@@ -126,38 +122,16 @@ html, body {
     height: 2rem;
    color: rgba(78,105,146,1.00);
    text-decoration: none;
+}
 
-}
-.table-dark {
-    margin: auto;
-    width: 75%;
-    align-content: center;
-}
-.drugtable{
-    width: 50%;
-    float:right;
-    padding-right: 10rem;
-    height: 20rem;
-    
-}
-.drugfacts{
-    width: 50%;
-    height: 20rem;
-    background: rgba(155,228,226,1.00);
-    bora
-;   border-radius: 50px;
-}
 .viewdrugs{
     height: 20rem;
     width: 100%;
     display: inline-block;
 }
-.col-12 .jumbotron .text-center {
-}
 .container {
     position: relative;
     top: -12rem;
-}
 }
 .row {
     border-radius: 30px;
@@ -175,11 +149,45 @@ html, body {
     height: 10rem;
     margin-top: 5rem;
 }
-.table-wrapper-scroll-y my-custom-scrollbar{
-    width: 80%;
-    
+.tablesize{
+    position: relative;
+    left:35%
+}
+.tablesize-p{
+    position: relative;
+    width: 100%
+}
+th{
+    border-top: 2px;
+    color: white;
+    background: rgba(0,0,0,0.80)
+    }
+th, td {
+    color: black;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    padding: 5px;
+}
+tr:nth-child(even) {
+    background-color:rgba(255,241,6,0.27);
+}
+tr:nth-child(even):hover {
+    background-color:rgba(255,241,6,0.10);
 }
 
+.parent{
+    display: grid;
+    grid-template-columns:auto auto;
+}
+.card1{
+    width: 100%;
+    padding-right: 15rem;
+}
+.card2{
+    width: 100%;
+    padding-right: 15rem;
+    border:thin groove rgba(151,151,151,0.20)
+}
 /* this is the scrolling stuff*/
 .scroll {
     background: url('img/background.jpg') no-repeat center;
