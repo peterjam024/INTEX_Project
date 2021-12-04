@@ -24,18 +24,17 @@
                 {{prescriber.isopioidprescriber}}
                 {{prescriber.totalprescriptions}}
                 <form name='NPI' method="get" action = {% url 'show_prescribed_drugs' %}>
-                <label for='NPI' >
-                <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}>
-            
+                    <label for='NPI' ></label>
+                    <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}> 
+                    <div class="column">
+                        <button type = "submit">Show Prescribed Drugs</button>
+                    </div>
+                </form>
+
             </p>
             {%endfor%}
         
-            <div class="column">
-                <button type = "submit">Show Prescribed Drugs</button>
-            </div>
-                </label>
-            </form>
-
+            
 
             {% comment %} {% for triple in our_drugs %}
             <p>

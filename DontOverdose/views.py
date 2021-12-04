@@ -66,7 +66,8 @@ def displayPrescriberPageView(request):
     sFirst = request.GET['first_name']
     sLast = request.GET['last_name']
 
-    data = Prescriber.objects.filter(fname__iexact=sFirst, lname__iexact=sLast)
+    data = Prescriber.objects.filter(
+        fname__contains=sFirst, lname__contains=sLast)
     if data.count() > 0:
         context = {
             "our_prescribers": data,
