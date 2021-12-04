@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div>
+    {% for triple in our_drugs %}
+    <p>
+
+        {{ triple.drugname }} is this even running?
+        {{ triple.qtyprescribed }}
+          
+    </p>
+    {% endfor %}
+</div>
+
+{% endblock %}
