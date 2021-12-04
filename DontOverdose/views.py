@@ -67,7 +67,7 @@ def displayPrescriberPageView(request):
     sLast = request.GET['last_name']
 
     data = Prescriber.objects.filter(fname__iexact=sFirst, lname__iexact=sLast)
-    if data.count() > 0 :
+    if data.count() > 0:
         context = {
             "our_prescribers": data,
         }
@@ -150,10 +150,12 @@ def showSinglePrescriberPageView(request, NPI):
     }
     return render(request, 'dontoverdose/updatePrescriber.html', context)
 
+
 def show_prescribed_drugs(request):
     iNPI = request.GET['NPI']
 
-    data = Triple.objects.filter(npi = iNPI).values_list("drugname", "qtyprescribed")
+    data = Triple.objects.filter(npi=iNPI).values_list(
+        "drugname", "qtyprescribed")
 
     context = {
         "our_drugs": data
@@ -161,7 +163,7 @@ def show_prescribed_drugs(request):
     return render(request, 'dontoverdose/displayPrescriberAndDrugs.html', context)
 
 
-##### editing a specific prescriber ########
+##### editing a specific prescriber #########
 
 
 def updatePrescriber(request):
