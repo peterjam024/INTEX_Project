@@ -183,7 +183,6 @@ tr:nth-child:hover {
     display: grid;
     grid-template-columns:1fr 2fr;
     grid-column-gap: 2rem;
-    grid
 }
 .intro{
     max-height: 1000px;
