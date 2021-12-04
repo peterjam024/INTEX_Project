@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% comment %} Go back to prescriber page {% endcomment %}
+
+<a class="nav-link" href="{% url 'allPrescribers' %}"><button>See all prescribers</button></a>
+<br><br>
+<div class="row padding">
     <form name="form" method="get" action="{% url 'displayPrescriber' %}">
         <h2>Search For A Prescriber</h2>
         <!-- npi --> 
-        <label for='NPI'>Enter the NPI:</label>
+        {% comment %} <label for='NPI'>Enter the NPI:</label>
         <input type="text" name='NPI' id='npi'>
-        <br><br>
+        <br><br> {% endcomment %}
         <!-- first name --> 
         <label for='first_name'>Enter the first name:</label>
         <input type="text" name='first_name' id='fname'>
@@ -16,7 +21,7 @@
         <input type="text" name='last_name' id='lname'>
         <br><br>
         <!-- gender --> 
-        <label for='prescriber_gender'>Enter the gender:</label>
+        {% comment %} <label for='prescriber_gender'>Enter the gender:</label>
         <input type="text" name='prescriber_gender' id='gender'>
         <br><br>
         <!-- location --> 
@@ -38,7 +43,10 @@
         <!-- total --> 
         <label for='total'>Total Prescriptions:</label>
         <input type="text" name='total' id='totalprescriptions'>
-        <br><br>
+        <br><br> {% endcomment %}
         <button type="submit">Search</button>
+        <button type="reset">Clear</button>    
     </form>
+</div>  
+   
 {% endblock %}

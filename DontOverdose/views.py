@@ -2,7 +2,7 @@
 # import requests
 
 # NEED TO IMPORT MODELS INTO VIEW FUNCTIONS
-from .models import Prescriber, Drugs
+from .models import Prescriber, Drugs, Triple
 
 ###### import models ########
 # from travelSites.models import em
@@ -59,34 +59,37 @@ def searchDrugPageView(request):
 
 
 def displayPrescriberPageView(request):
-    iNPI = request.GET['NPI']
+    # iNPI = request.GET['NPI']
     sFirst = request.GET['first_name']
     sLast = request.GET['last_name']
-    sGender = request.GET['prescriber_gender']
-    sCredentials = request.GET['prescriber_credentials']
-    sLocation = request.GET['location']
-    sSpecialty = request.GET['prescriber_specialty']
-    sIsOpioid = request.GET['opioid_dude?']
-    iTotal = request.GET['total']
+    # sGender = request.GET['prescriber_gender']
+    # sCredentials = request.GET['prescriber_credentials']
+    # sLocation = request.GET['location']
+    # sSpecialty = request.GET['prescriber_specialty']
+    # sIsOpioid = request.GET['opioid_dude?']
+    # iTotal = request.GET['total']
 
-    data = Prescriber.objects.filter(
-        npi=iNPI, fname=sFirst, lname=sLast, gender=sGender, credentials=sCredentials, state=sLocation, specialty=sSpecialty, isopioidprescriber=sIsOpioid, totalprescriptions=iTotal)
+    # ,        npi__iexact=iNPI, , gender__iexact=sGender, credentials__iexact=sCredentials, state__iexact=sLocation, specialty__iexact=sSpecialty, isopioidprescriber__iexact=sIsOpioid, totalprescriptions__iexact=iTotal)
+    data = Prescriber.objects.filter(fname__iexact=sFirst, lname__iexact=sLast)
+    data2 = Triple.objects.values_list('npi', 'drugname', 'qtyprescribed')
 
     if data.count() > 0:
         context = {
-            "our_prescribers": data
+            "our_prescribers": data,
+            "our_drugs": data2
         }
         return render(request, 'dontoverdose/displayPrescriber.html', context)
     else:
         return HttpResponse("Not found")
+
 
 # SEARCHES FOR DRUGS #####################
 
 
 def displayDrugPageView(request):
     name = request.GET['name']
-    opioid_label = request.GET['is_opiate']
-    data = Drugs.objects.filter(drugname=name, isopioid=opioid_label)
+    # opioid_label = request.GET['is_opiate']
+    data = Drugs.objects.filter(drugname=name)  # , isopioid=opioid_label)
 
     if data.count() > 0:
         context = {
