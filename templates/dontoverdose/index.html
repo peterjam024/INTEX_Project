@@ -23,16 +23,18 @@
  <div class="text-center col-md-6 col-12">
    <h3>Why is this Information Important?&nbsp;</h3>
      <p>Tools For Health Professionals &amp; Governmen Offices&nbsp;&nbsp;</p>
+     <br>
    <a class="mybutton" href="#" role="button" style="text-decoration: none">Our Findings Page</a>
  </div>
  <div class="text-center col-md-6 col-12">
    <h3>How Will This Data Help?&nbsp;</h3>
    <p>Opioids &amp; Their Impact on the United States&nbsp;</p>
+   <br>
    <a class="mybutton"href="#" role="button" style="text-decoration: none">Implementation</a>
  </div>
 </div>
 </div>
-
+<br>
 <hr>
 <div class="container">
 <div class="row">
@@ -75,8 +77,10 @@
      <div class="card-body">
        <h5 class="card-title">U.S.A Deaths</h5>
        <p class="card-text">Percentages by state</p>
+       <br> 
        <a href="#" class="mybutton">More Stats &amp; Analytics&nbsp;&nbsp;</a>
      </div>
+     <br>
    </div>
  </div>
  <div class="col-sm-6">
@@ -84,15 +88,30 @@
 
      <div class="card-body">
        <h5 class="card-title">How Can I Contribute?&nbsp;&nbsp;</h5>
-       <p class="card-text">Know of a drug not listed?&nbsp;&nbsp;</p>
+       <p class="card-text">Learn more about the current drugs&nbsp;&nbsp;</p>
        <br>
-       <a href="#" class="mybutton">Add a Drug</a>
-         <br><br>
+       <a href="{% url 'allDrugs'%}" class="mybutton">See Drugs</a>
+         <br><br><br>
        <p class="card-text">Know of a medical provider not on the list?&nbsp;&nbsp;</p>
        <br>
        <a class="mybutton" href="{% url 'addPrescriber'%}">Register A Physician&nbsp;</a>
+       <br><br>
      </div>
+     
    </div>
+   <br>
+   <div class="card">
+
+    <div class="card-body">
+      <h5 class="card-title">How Can I learn more?&nbsp;&nbsp;</h5>
+      
+      <p class="card-text">Check out our about page!&nbsp;&nbsp;</p>
+      <br>
+      <a class="mybutton" href="{% url 'about'%}">Come and see!&nbsp;</a>
+    </div>
+    <br>
+    
+  </div>
  </div>
 </div>
 </div>
