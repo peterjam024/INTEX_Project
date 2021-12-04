@@ -4,32 +4,23 @@
 <div >
     {% for prescriber in our_prescribers %}
     <p>  
-        {{ prescriber.npi }}
-        {{ prescriber.fname }}
-        {{ prescriber.lname }}
-        {{ prescriber.gender }}
-        {{ prescriber.credentials }}
-        {{ prescriber.state }}
+        The Doctor {{ prescriber.fname }}
+        {{ prescriber.lname }} is a 
+        {{ prescriber.gender }} and has the credentials
+        {{ prescriber.credentials }} and specializes in 
         {{ prescriber.specialty }}
-        {{prescriber.isopioidprescriber}}
-        {{prescriber.totalprescriptions}}
+        <form name='NPI' method="get" action = {% url 'show_prescribed_drugs' %}>
+        <label for='NPI' >
+        <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}>
+ 
     </p>
     {%endfor%}
 
-
-    {% for triple in our_drugs %}
-    <p>
-
-        {% if  prescriber.npi == triple.npi %}
-
-            {{triple.drugname}}
-            {{triple.qtyprescribed}}
-
-        {% endif %}    
-    </p>
-    {% endfor %}
-
-    
+    <div class="column">
+        <button type = submit>Show Prescribed Drugs</button>
+    </div>
+        </label>
+    </form>
 </div>
 {% endblock %}
 
