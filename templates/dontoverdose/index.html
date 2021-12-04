@@ -1,15 +1,109 @@
 {% extends 'base.html' %}
 {%load static %}
 {% block content %}
-<!-- 
+</div>
+<div class="containerCustom">
+ <div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/background.jpg'%}">
+ </div>
+  <div class="catch" style="position: relative;left: 5rem; text-align: left;">
+      
+       <img src="{% static 'img/KnowOpioidsfull.png'%}" style="width: 10%"><br>
+    <span style="font-size: 30pt">
+        Finally,
+    </span><br>
+        <span>Centralized Opioid Data</span><br><br>
+    <a class="mybutton" href="{% url 'allPrescribers' %}" style="border: thick;border-style: solid;color: rgba(236,212,35,1.00);text-decoration: none;width: 4rem;padding-right: 3rem;padding-top: 7px;padding-bottom: 7px;padding-left: 3rem;">Prescribers</a>
+        
+     <a class="mybutton" href="{% url 'allDrugs' %}" style="border: thick;border-style: solid;color: rgba(236,212,35,1.00);text-decoration: none;width: 4rem;padding-right: 3rem;padding-top: 7px;padding-bottom: 7px;padding-left: 3rem;">Drugs</a>
+     
+     </div>
+</div>
+<div class="container">
+<div class="row">
+ <div class="text-center col-md-6 col-12">
+   <h3>Why is this Information Important?&nbsp;</h3>
+     <p>Tools For Health Professionals &amp; Governmen Offices&nbsp;&nbsp;</p>
+   <a class="mybutton" href="#" role="button" style="text-decoration: none">Our Findings Page</a>
+ </div>
+ <div class="text-center col-md-6 col-12">
+   <h3>How Will This Data Help?&nbsp;</h3>
+   <p>Opioids &amp; Their Impact on the United States&nbsp;</p>
+   <a class="mybutton"href="#" role="button" style="text-decoration: none">Implementation</a>
+ </div>
+</div>
+</div>
 
+<hr>
+<div class="container">
+<div class="row">
+ <div class="col-lg-3 col-md-6 col-12">
+   <h2>Lorem ipsum</h2>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis accusamus praesentium eveniet ad unde doloremque ex officia eius ab quibusdam.</p>
+ </div>
+ <div class="col-lg-3 col-md-6 col-12">
+   <h2>Lorem ipsum</h2>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, mollitia natus amet eligendi consequuntur. Veritatis ullam debitis voluptas repellat laboriosam.</p>
+ </div>
+ <div class="col-lg-3 col-md-6 col-12">
+   <h2> Lorem ipsum</h2>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, error, itaque non vel architecto ratione obcaecati doloribus delectus illum harum?</p>
+ </div>
+ <div class="col-lg-3 col-md-6 col-12">
+   <h2>Lorem ipsum</h2>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, nam voluptate accusantium nulla distinctio odit aliquam voluptatem ab. Earum.</p>
+ </div>
+</div>
+</div>
+<hr>
+<section>
+<h2 class="text-center">The National Crisis</h2>
+<div class="container">
+ <div class="row">
+   <div class="col-12">
+     <div class="embed-responsive embed-responsive-16by9">
+       <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/EsAgnVMWxBc"></iframe>
+     </div>
+   </div>
+ </div>
+</div>
+</section>
+<div class="container mt-4">
+<div class="row">
+ <div class="col-sm-6">
+   <div class="card">
+     <img class="card-img-top" src="{% static 'img/USOPIOID.png'%}" alt="Card image cap">
+     <div class="card-body">
+       <h5 class="card-title">U.S.A Deaths</h5>
+       <p class="card-text">Percentages by state</p>
+       <a href="#" class="mybutton">More Stats &amp; Analytics&nbsp;&nbsp;</a>
+     </div>
+   </div>
+ </div>
+ <div class="col-sm-6">
+   <div class="card">
+
+     <div class="card-body">
+       <h5 class="card-title">How Can I Contribute?&nbsp;&nbsp;</h5>
+       <p class="card-text">Know of a drug not listed?&nbsp;&nbsp;</p>
+       <a href="#" class="mybutton">Add a Drug</a>
+         <br><br>
+       <p class="card-text">Know of a medical provider&nbsp; not on the list?&nbsp;&nbsp;</p>
+       <a class="mybutton" href="{% static 'updatePrescriber'%}">Register A Physician&nbsp;</a>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+ <div class="container py-sm-4"> </div>
+</div>
+</div>
+
+{%endblock%}
+<!-- 
 GOOD IDEAS
 --- https://www.hhs.gov/overdose-prevention/
----
----
----
-
-
 TOP LEFT
 -- Logo  
 TOP RIGHT 
@@ -23,41 +117,19 @@ TOP RIGHT
     -- NEED to view prescriptions being made (for government and doctors)
     -- PORTAL
     --
+3. Dynamic graphs that update4. -->
 
-3. Dynamic graphs that update
-4. 
-
-
-
-
-
- -->
-
-
-<div class="row padding">
-    <div class="column">
-        <h1>HOME</h1>
-    </div>
+<!--div class="boxtop">
+        <a class="mybutton" href="{% url 'allDrugs'  %}">Show All Drugs</a>
+        <br>
+        <br>
+        <a class="mybutton" href="{% url 'allPrescribers' %}">Show All Prescribers</a>
+        <br>
+        <br>
+        <a class="mybutton" href="{% url 'searchPrescriber' %}">Find A Prescriber</a>
+        <br>
+        <br>
+        <a class="mybutton" href="{% url 'searchDrug' %}">Find A Drug</a>  
 </div>
-    
+-->
 
-<br>
-<br>
-<h2>Welcome to Our Home page!</h2>
-<div class="row padding">
-    <div class="column">
-        <a class="nav-link" href="{% url 'allDrugs'  %}"><button>Show All Drugs</button></a>
-    </div>
-    <div class="column">
-        <a class="nav-link" href="{% url 'allPrescribers' %}"><button>Show All Prescribers</button></a>
-    </div>
-    <div class="column">
-        <a class="nav-link" href="{% url 'searchPrescriber' %}"><button>Find A Prescriber</button></a>
-    </div>
-    <div class="column">
-        <a class="nav-link" href="{% url 'searchDrug' %}"><button>Find A Drug</button></a>
-    </div>
-    
-</div>
-
-{%endblock%}

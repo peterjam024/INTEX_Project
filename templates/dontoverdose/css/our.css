@@ -1,0 +1,232 @@
+@charset "UTF-8";
+/*
+turqois: rgba(155,228,226,1.00)
+orange: rgba(248,150,2,1.00)
+mustartd: rgba(236,212,35,1.00)
+*/
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.background{
+    width: 100%;
+}
+.homebutton{
+    padding-left:10%;
+}
+.searchbar{
+    position: fixed;
+    width: 100%;
+    height: 3rem;
+    display: inline-block;
+    border-bottom: 1px;
+    background-color: white;
+    z-index: 100;
+}
+.searchbar input,.searchbar button{
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    height: 2.25;
+}
+.collect, .collect:visited {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    font-size: 12pt;
+    top: 20%;
+    width: 10rem;
+    height: 2rem;
+    margin-left: 1%;
+    padding-left: 1%;
+    padding-top: .4rem;
+    padding-bottom: .5rem;
+    border-left: rgba(236,212,35,1.00);
+    border-left-style: solid;
+}
+.collect:hover{
+    color: rgba(78,105,146,1.00);
+}
+.searchbar input{
+    width: 15rem;
+}
+.searchbar button{
+    background: white;
+    background-image: linear-gradient(to left, rgba(155,228,226,0.10), white, rgba(155,228,226,0.));
+    width: 5rem;
+}
+.searchbar img{
+    position: relative;
+    top: 20%; 
+    height: 2rem;
+    padding-left: 2%;
+}
+.searchbox{
+    position: relative;
+    top: 8%;
+    right:2%
+}
+.searchbar box{
+
+}
+.catch{
+    position: relative;
+    z-index: 10;
+    top: -30rem;
+    right: 25rem;
+}
+.mybutton:link,.mybutton:visited
+{
+    border: thick;
+    border-style: solid;
+    color: rgba(236,212,35,1.00);
+    text-decoration: none;
+    margin-top: 6rem;
+    margin-right: 6rem;
+    margin-bottom: 6rem;
+    margin-left: 6rem;
+    width: 4rem;
+    padding-right: 3rem;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 3rem;
+}
+
+.mybutton:hover
+{
+    width: 5rem;
+    height: 2rem;
+   color: rgba(78,105,146,1.00);
+   text-decoration: none;
+
+}
+.mybutton2:link,.mybutton2:visited
+{
+    border: thick;
+    border-style: dashed;
+    color: white;
+    text-decoration: none;
+    margin-top: 6rem;
+    margin-right: 6rem;
+    margin-bottom: 6rem;
+    margin-left: 6rem;
+    width: 4rem;
+    padding-right: 3rem;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 3rem;
+}
+
+.mybutton2:hover
+{
+    width: 5rem;
+    height: 2rem;
+   color: rgba(78,105,146,1.00);
+   text-decoration: none;
+}
+
+.viewdrugs{
+    height: 20rem;
+    width: 100%;
+    display: inline-block;
+}
+.container {
+    position: relative;
+    top: -12rem;
+}
+.row {
+    border-radius: 30px;
+    width: 100%;
+}
+.enough{
+    position: relative;
+    top: -100%;
+}
+.tophead div .navbar-brand {
+    font-weight: 400;
+    font-size: 14px;
+}
+.topheader{
+    height: 10rem;
+    margin-top: 5rem;
+}
+.tablesize{
+    position: relative;
+    left:35%
+}
+.tablesize-p{
+    position: relative;
+    width: 100%
+}
+th{
+    border-top: 2px;
+    color: white;
+    background: rgba(0,0,0,0.80)
+    }
+th, td {
+    color: black;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    padding: 5px;
+}
+tr:nth-child(even) {
+    background-color:rgba(255,241,6,0.27);
+}
+tr:nth-child(even):hover {
+    background-color:rgba(255,241,6,0.10);
+}
+
+.parent{
+    display: grid;
+    grid-template-columns:auto auto;
+}
+.card1{
+    width: 100%;
+    padding-right: 15rem;
+}
+.card2{
+    width: 100%;
+    padding-right: 15rem;
+    border:thin groove rgba(151,151,151,0.20)
+}
+/* this is the scrolling stuff*/
+.scroll {
+    background: url('img/background.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    
+    /* scroll-behavior: smooth;
+    scroll-snap-type: mandatory;
+    scroll-snap-align: center; */
+}
+.parallax-window {
+    min-height: 700px;
+    background: transparent;
+}
+.containerCustom{
+    width: 100%;
+    /* margin: 0 auto; */
+    /* background: rgb(151, 145, 145); */
+    font-size: 2em;
+    /* padding: 15rem ; */
+    position: relative;
+    text-align: center;
+    color: white;
+    text-transform: none;
+}
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /* Centered bottom text */
+.centeredBottom {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

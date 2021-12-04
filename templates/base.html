@@ -2,67 +2,99 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>OpioidCrisis</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href= {% static "css/styles.css"%} rel="stylesheet" />
-        <link href= {% static "css/mycss.css"%} rel="stylesheet" />
-
-    </head>
-    <body id="page-top">
-         <!-- Navigation... I added this-->
-         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link"  style = "color: black" href="{% url 'index' %}">Home</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-   
-    <!-- MAIN PART of base-->
-    <div class= "padding">
-        <h1>Know Opioids</h1>
-    </div>
-    <br>
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Know Opioids</title>
+    <link rel="shortcut icon" href="{% static 'img/KnowOpioids.png'%}">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap-4.4.1.css'%}" rel="stylesheet">
+    <link href="{% static 'css/our.css'%}" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="searchbar">
+      <a href="{% url 'index'%}"><img src="{% static 'img/KnowOpioids.png'%}"><a/>
+        
+        <a class="collect" >Data Collection For Known Drugs</box>
+        <a class="collect" href="{% url 'allPrescribers' %}">Who  Prescribes?</a>
+        <a class="collect" href="">Common Opioids</a>
+        <a class="collect" href="#contactbottom">Contact Us</a>
+        
+    <input class="searchbox" placeholder="Search">
+  </div> 
+    
     <!-- This is what will link to the other pages-->
     {%block content%}
     {%endblock%}
 
 
 
-
-  <!-- Footer-->
-        <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">GROUP 8 is BEAST </div></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
-</html>
+<!-- FOOTER -->
+<div class="daddy">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-6 mb-md-0 mb-2">
+            <h2 id="contactbottom">Contact Us</h2>
+            <address>
+              <strong>BYU IS</strong><br>
+              Brigham Young University, Ernest L. Wilkinson Student Center, 1 Campus Dr #1944, Provo, UT 84604, PO BOX 12345<br>
+            <u>Phone : 385-333-439</u>
+            </address>
+            <h4>Our Supporters&nbsp;</h4>
+            <div class="row">
+              <div class="col-2"><img class="rounded-circle" src="../BFD_WebDev/images/32X32.gif" alt=""></div>
+              <div class="col-2"><img class="rounded-circle" src="../BFD_WebDev/images/32X32.gif" alt=""></div>
+              <div class="col-2"><img class="rounded-circle" src="../BFD_WebDev/images/32X32.gif" alt=""></div>
+              <div class="col-2"><img class="rounded-circle" src="../BFD_WebDev/images/32X32.gif" alt=""></div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <h2>Testimonials</h2>
+            <ul class="list-unstyled">
+              <li class="media">
+                <img class="mr-3" src="../BFD_WebDev/images/35X35.gif" alt="Generic placeholder image">
+                <div class="media-body">
+                  <h5 class="mt-0 mb-1">Heading 1</h5>
+                  <p class="mb-0">We should quote tikTokers! hahaha&nbsp;</p>
+                </div>
+              </li>
+              <li class="media my-4">
+                <img class="mr-3" src="../BFD_WebDev/images/35X35.gif" alt="Generic placeholder image">
+                <div class="media-body">
+                  <h5 class="mt-0 mb-1">Heading 2</h5>
+                  <p class="mb-0">And then quote the boring lady&nbsp;&nbsp;</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-12">
+            <h2>About Us</h2>
+            <p>Group I-8 recognized a massive need for the publication of this data. We knew that if we didn't deploy by Friday, Dec 3, then 50 other similar websites with the same data was going to rise from the dust and steal our troph. So we acted fast and promptly. And now, hopefully we win the prize in tex....as ?!?!?!&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+            <p>More important, government officials and public health offices have made known to the rising concern of prescription drug abuse and reached out to us for help in creating the tool for health professionals, government agencies and citizens alike.&nbsp; &nbsp; &nbsp; &nbsp;</p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <footer class="text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p>Copyright © Group I-8. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+    </footer>
+</div>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static 'js/parallax.js-1.5.0/parallax.js-1.5.0/parallax.js'%}"></script>
+    <script src="{% static 'js/parallax.js-1.5.0/parallax.js-1.5.0/parallax.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/our.js'%}"></script>
+    <script src="{% static 'js/bootstrap-4.4.1.js'%}"></script>
+  </body>
+  </html>

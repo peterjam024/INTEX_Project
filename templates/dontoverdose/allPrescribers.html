@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {%load static %}
 {%block content%}
-<div class="row padding">
-    <div class="column">
-        <h1>ALL PRESCRIBERS</h1>
+<link href="css/our.css" type="text/css" rel="stylesheet">
+
+<section>
+<div class="parent">
+ <div class="card1">
+    <div class="topheader">
+        <h1>Prescribers</h1>
+        <h2>Real hard stuff to swollow goes here&nbsp;</h2>
+          <p>Write here till your heart is content</p>
     </div>
-</div>
 
 <br><br>
 <a class="nav-link" href="{% url 'addPrescriber' %}"><button>Add New Prescriber</button></a>
@@ -13,6 +18,11 @@
 <br><br>
 
 <div class="centered">
+
+            <a class="mybutton"method="get" action="{% url 'addPrescriber' %}">Add New Prescriber</a>
+</div>
+<div class="card2">
+<div class="tablesize-p" style="overflow-x:auto;">
     <table>
         <tr>
             <th></th>
@@ -24,13 +34,14 @@
             <th>Credentials</th> 
             <th style="text-align: center;">Specialty</th>
             <th>Is Opioid Prescriber?</th> 
-            <th>Total Prescriptions</th>  
+            <th>Total Prescriptions</th> 
+            <th></th>
         </tr>
 
         {% for prescriber in prescriber_list %}           
             <tr>
                 <td>
-                    <a href="{% url 'singlePrescriber' NPI=prescriber.npi %}"><button>Edit</button></a>
+                    <a class="mybutton" href="{% url 'singlePrescriber' NPI=prescriber.npi %}">Edit</a>
                 </td>
                 <td style="text-align: center;">
                     {{prescriber.npi}}
@@ -60,8 +71,13 @@
                     {{prescriber.totalprescriptions}}
                 </td>
                 <td>
-                    <a href="{% url 'deletePrescriber' NPI=prescriber.npi %}"><button>Delete</button></a>
+                    <a class="mybutton"href="{% url 'deletePrescriber' NPI=prescriber.npi %}">Delete</a>
                 </td>
-        {% endfor %}        
+            </tr>
+        {% endfor %} 
+        </table>
+    </div>
+  </div>
 </div>
+</section>
 {%endblock%}
