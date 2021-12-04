@@ -109,6 +109,10 @@ def addPrescriberPageView(request):
 
 
 def storePrescriberPageView(request):
+    # check that there is data, if not then tell the user!
+    # if new_prescriber.npi is None:
+    # HttpResponse("You need data ")
+
     # Check to see if the form method is a get or post
     if request.method == 'POST':
 
@@ -117,6 +121,7 @@ def storePrescriberPageView(request):
 
         # Store the data from the form to the new object's attributes (like columns)
         new_prescriber.npi = request.POST.get('NPI')
+
         new_prescriber.fname = request.POST.get('first_name')
         new_prescriber.lname = request.POST.get('last_name')
         new_prescriber.gender = request.POST.get('prescriber_gender')
