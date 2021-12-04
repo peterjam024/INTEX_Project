@@ -10,7 +10,7 @@
     <div class="row padding">
         <form name="form" id="drugForm" method="get" action="{% url 'displayDrug' %}">
             <label for='name'>Enter the drug name:</label>
-            <input type="text" name='name' id='drugname'>
+            <input type="text" name='name' id='drugname' required>
             <br><br>
             {% comment %} <label for='is_opiate'>Enter if drug is Opioid (TRUE/FALSE):</label>
             <input type="text" name='is_opiate' id='isopioid'>

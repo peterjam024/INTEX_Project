@@ -191,7 +191,7 @@ def updatePrescriber(request):
 # delete a prescriber
 def deletePrescriber(request, NPI):
     data = Prescriber.objects.get(npi=NPI)
-    # ARE YOU SURE FUCNTION
+    # ARE YOU SURE FUNCTION
     # IF STATEMENT= if the NPI doesn't exist, redirects
     data.delete()
 
