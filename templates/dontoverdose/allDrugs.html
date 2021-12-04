@@ -3,33 +3,21 @@
 {% block content %}
 <div class="topheader">
     <h1>Drugs</h1>
-    <h2>Real hard stuff to swollow goes here&nbsp;</h2>
-      <p>Write here till your heart is content</p>
-  </div>
-  
-  
-<br><br>
+
+</div>
+
 <a class="nav-link" href="{% url 'searchDrug' %}"><button>Find A Drug</button></a>
 <br><br>
   <table class="tablesize">
-    <tr>
-        <th>    </th>
-        <th style="text-align: center;">Drug Name</th>
-        <th>Is Opioid?</th>
-    </tr>
-    {% for drug in drug_list %}           
         <tr>
-          <th>Drug Name</th>
-          <th>Opioid?</th>
+            
+            <th style="text-align: center;">Drug Name</th>
+            <th>Is Opioid?</th>
         </tr>
-    {% endfor%}
-      </thead>
-      {% for drug in drug_list %} 
-        <tr>
-          
-          <td>{{drug.drugname}}</td>
-          <td>{{drug.isopioid}}</td>
-        </tr>
+        {% for drug in drug_list %} 
+            <td>{{drug.drugname}}</td>
+            <td>{{drug.isopioid}}</td>
+            </tr>
         {% endfor %} 
     </table>
   

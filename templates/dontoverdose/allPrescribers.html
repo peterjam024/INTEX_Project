@@ -7,19 +7,15 @@
     <div class="card1">
         <div class="topheader">
             <h1>Prescribers</h1>
-            <h2>Real hard stuff to swollow goes here&nbsp;</h2>
-            <p>Write here till your heart is content</p>
         </div>
-
-        <br><br>
         <a class="nav-link" href="{% url 'addPrescriber' %}"><button>Add New Prescriber</button></a>
         <a class="nav-link" href="{% url 'searchPrescriber' %}"><button>Find A Prescriber</button></a>
         <br><br>
 
-        <div class="centered">
+        {% comment %} <div class="centered">
 
                     <a class="mybutton"method="get" action="{% url 'addPrescriber' %}">Add New Prescriber</a>
-        </div>
+        </div> {% endcomment %}
     <div class="card2">
         <div class="tablesize-p" style="overflow-x:auto;">
             <table>
