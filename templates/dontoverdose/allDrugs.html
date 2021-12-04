@@ -8,6 +8,9 @@
   </div>
   
   
+<br><br>
+<a class="nav-link" href="{% url 'searchDrug' %}"><button>Find A Drug</button></a>
+<br><br>
   <table class="tablesize">
     <tr>
         <th>    </th>
@@ -19,6 +22,7 @@
           <th>Drug Name</th>
           <th>Opioid?</th>
         </tr>
+    {% endfor%}
       </thead>
       {% for drug in drug_list %} 
         <tr>

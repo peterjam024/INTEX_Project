@@ -1,40 +1,48 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div >
+<div class="parent">
+    <div >
     <a class="nav-link" href="{% url 'allPrescribers' %}"><button>See all prescribers</button></a>
-
-    {% for prescriber in our_prescribers %}
-    <p >  
-        {{ prescriber.npi }}
-        {{ prescriber.fname }}
-        {{ prescriber.lname }}
-        {{ prescriber.gender }}
-        {{ prescriber.credentials }}
-        {{ prescriber.state }}
-        {{ prescriber.specialty }}
-        {{prescriber.isopioidprescriber}}
-        {{prescriber.totalprescriptions}}
-    </p>
-    {%endfor%}
-
-
-    {% comment %} {% for triple in our_drugs %}
-    <p>
-
-        {% if  prescriber.npi == triple.npi %}
-
-            {{triple.drugname}}
-            {{triple.qtyprescribed}}
-
-        {% endif %}    
-    </p>
-    {% endfor %} {% endcomment %}
-
-    <a class="nav-link" href="{% url 'searchPrescriber' %}"><button>Back</button></a>
+    </div>
+    
+    <br><br><br><br>    
+    <div class="card2">
+        <div class="tablesize-p" style="overflow-x:auto;">
+            {% for prescriber in our_prescribers %}
+            <p >  
+                {{ prescriber.npi }}
+                {{ prescriber.fname }}
+                {{ prescriber.lname }}
+                {{ prescriber.gender }}
+                {{ prescriber.credentials }}
+                {{ prescriber.state }}
+                {{ prescriber.specialty }}
+                {{prescriber.isopioidprescriber}}
+                {{prescriber.totalprescriptions}}
+            </p>
+            {%endfor%}
 
 
+            {% comment %} {% for triple in our_drugs %}
+            <p>
+
+                {% if  prescriber.npi == triple.npi %}
+
+                    {{triple.drugname}}
+                    {{triple.qtyprescribed}}
+
+                {% endif %}    
+            </p>
+            {% endfor %} {% endcomment %}
+
+            <a class="nav-link" href="{% url 'searchPrescriber' %}"><button>Back</button></a>
+
+
+        </div>
+    </div>
 </div>
+
 {% endblock %}
 
 <!--
