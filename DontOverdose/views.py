@@ -28,6 +28,10 @@ def aboutPageView(request):
     return render(request, "dontoverdose/about.html")
 
 
+def contactPageView(request):
+    return render(request, "dontoverdose/contact.html")
+
+
 def showAllDrugsPageView(request):
     drug_list = Drugs.objects.all()
     context = {
@@ -89,7 +93,10 @@ def displayPrescriberPageView(request):
 def displayDrugPageView(request):
     name = request.GET['name']
     # opioid_label = request.GET['is_opiate']
-    data = Drugs.objects.filter(drugname=name)  # , isopioid=opioid_label)
+    # , isopioid=opioid_label)
+    # need to make this so it can be lowercase or whatever!!!
+
+    data = Drugs.objects.filter(drugname__iexact=name)
 
     if data.count() > 0:
         context = {
