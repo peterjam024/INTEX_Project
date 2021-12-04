@@ -1,4 +1,7 @@
-<link href="css/our.css" type="text/css" rel="stylesheet">
+{% extends 'base.html' %}
+{%load static %}
+{% block content %}
+
 <div class="topheader">
     <h1>Prescribers</h1>
     <h2>Real hard stuff to swollow goes here&nbsp;</h2>
@@ -8,27 +11,49 @@
   
     <table class="tablesize">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th>Drug Name</th>
+          <th>Opioid?</th>
         </tr>
       </thead>
+      {% for drug in drug_list %} 
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          
+          <td>{{drug.drugname}}</td>
+          <td>{{drug.isopioid}}</td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
+        {% endfor %} 
     </table>
   
   </div>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>   
   </body>
   </html>
+{% comment %} <div class="row padding">
+    <div class="column">
+        <h1>DRUGS</h1>
+    </div>
+</div>
+​
+<br><br>
+​
+<div class="centered">
+    <table>
+        <tr>
+            <th>    </th>
+            <th style="text-align: center;">Drug Name</th>
+            <th>Is Opioid?</th>
+        </tr>
+        {% for drug in drug_list %}           
+            <tr>
+               <td> </td>
+                <td style="text-align: center;">
+                    {{drug.drugname}}   
+                </td>
+                <td style="text-align: center;">
+                    {{drug.isopioid}}   
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div> {% endcomment %}
+{%endblock%}

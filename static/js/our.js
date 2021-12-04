@@ -70,10 +70,3 @@
     });
 
 })(jQuery); // End of use strict
-
-
-    function myfunction(){
-        $('html, body').animate({
-            scrollTop: $("#contactbottom").offset().top
-        }, 2000);
-    };
