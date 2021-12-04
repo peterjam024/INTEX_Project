@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<br><br><br><br><br><br><br><br>
 
 <div class="parent">
     <div >
-    <a class="nav-link" href="{% url 'allPrescribers' %}"><button>See all prescribers</button></a>
+        <a class="nav-link" href="{% url 'allPrescribers' %}"><button>See all prescribers</button></a>
+        <a class="nav-link" href="{% url 'searchPrescriber' %}"><button>Search for another prescriber</button></a>
     </div>
     
-    <br><br><br><br>    
+    <br><br><br><br>  <br><br>  <br><br>    
     <div class="card2">
         <div class="tablesize-p" style="overflow-x:auto;">
             {% for prescriber in our_prescribers %}
@@ -29,7 +31,7 @@
             {%endfor%}
         
             <div class="column">
-                <button type = submit>Show Prescribed Drugs</button>
+                <button type = "submit">Show Prescribed Drugs</button>
             </div>
                 </label>
             </form>

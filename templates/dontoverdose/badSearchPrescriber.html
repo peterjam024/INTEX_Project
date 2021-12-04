@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+{% comment %} Go back to prescriber page {% endcomment %}
+<div>
+    <h1> Did you make sure to search for the exact name?</h1>
+    <h4> Be sure to go back and search again! 
+
+    <a class="nav-link" href="{% url 'searchPrescriber' %}"><button>Search again</button></a>
+    <br><br>
+
+</div>  
+   
+{% endblock %}
