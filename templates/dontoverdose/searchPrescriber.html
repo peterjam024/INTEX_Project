@@ -2,8 +2,8 @@
 {% load static %}
 {% block content %}
 {% comment %} Go back to prescriber page {% endcomment %}
-
-<a class="nav-link" href="{% url 'allPrescribers' %}"><button>See all prescribers</button></a>
+<br><br>
+<a class="mybutton" href="{% url 'allPrescribers' %}">See all Prescirber</a>
 <br><br>
 <div class="row padding">
     <form name="form" method="get" action="{% url 'displayPrescriber' %}">

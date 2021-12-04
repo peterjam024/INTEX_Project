@@ -1,22 +1,23 @@
 {% extends 'base.html' %}
 {%load static %}
 {% block content %}
-</div>
+<link href="file:///Macintosh%20HD/Users/Evelyn/Desktop/IS%20403/BigFatLogos/github/INTEX_Project/OpioidAbuse/static/css/our.css" rel="stylesheet" type="text/css">
 <div class="containerCustom">
  <div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/background.jpg'%}">
  </div>
   <div class="catch" style="position: relative;left: 5rem; text-align: left;">
       
        <img src="{% static 'img/KnowOpioidsfull.png'%}" style="width: 10%"><br>
-    <span style="font-size: 30pt">
+    <span style="font-size: 30pt;color: rgba(236,212,35,0.06))">
         Finally,
     </span><br>
         <span>Centralized Opioid Data</span><br><br>
-    <a class="mybutton" href="{% url 'allPrescribers' %}" style="border: thick;border-style: solid;color: rgba(236,212,35,1.00);text-decoration: none;width: 4rem;padding-right: 3rem;padding-top: 7px;padding-bottom: 7px;padding-left: 3rem;">Prescribers</a>
+  <div class="moveleft" style="position: relative;left: -4rem">
+    <a class="mybutton" href="{% url 'allPrescribers' %}" style="display:inline; border: thick;border-style: solid;color: rgba(236,212,35,1.00);text-decoration: none;width: 4rem;padding-top: 7px;padding-bottom: 7px;padding-left: 3rem;padding-right: 3rem">Prescribers</a>
         
-     <a class="mybutton" href="{% url 'allDrugs' %}" style="border: thick;border-style: solid;color: rgba(236,212,35,1.00);text-decoration: none;width: 4rem;padding-right: 3rem;padding-top: 7px;padding-bottom: 7px;padding-left: 3rem;">Drugs</a>
-     
+     <a class="mybutton" href="{% url 'allDrugs' %}" style="display:inline; border: thick;border-style: solid;color: rgba(236,212,35,1.00);text-decoration: none;width: 4rem;padding-top: 7px;padding-bottom: 7px;padding-left: 3rem;padding-right: 3rem">Drugs</a>
      </div>
+    </div>
 </div>
 <div class="container">
 <div class="row">
@@ -101,82 +102,4 @@
  <div class="container py-sm-4"> </div>
 </div>
 </div>
-<div class="daddy">
-  <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-6 mb-md-0 mb-2">
-          <h2 id="contactbottom">Contact Us</h2>
-          <address>
-            <strong>BYU IS</strong><br>
-            Brigham Young University, Ernest L. Wilkinson Student Center, 1 Campus Dr #1944, Provo, UT 84604, PO BOX 12345<br>
-          <u>Phone : 385-333-439</u>
-          </address>
-          <h4>Our Supporters&nbsp;</h4>
-          <div class="row">
-            <div class="col-2"><img class="rounded-circle" src="../BFD_WebDev/images/32X32.gif" alt=""></div>
-            <div class="col-2"><img class="rounded-circle" src="../BFD_WebDev/images/32X32.gif" alt=""></div>
-            <div class="col-2"><img class="rounded-circle" src="../BFD_WebDev/images/32X32.gif" alt=""></div>
-            <div class="col-2"><img class="rounded-circle" src="../BFD_WebDev/images/32X32.gif" alt=""></div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12">
-          <h2>Testimonials</h2>
-          <ul class="list-unstyled">
-            <li class="media">
-              <img class="mr-3" src="../BFD_WebDev/images/35X35.gif" alt="Generic placeholder image">
-              <div class="media-body">
-                <h5 class="mt-0 mb-1">Heading 1</h5>
-                <p class="mb-0">We should quote tikTokers! hahaha&nbsp;</p>
-              </div>
-            </li>
-            <li class="media my-4">
-              <img class="mr-3" src="../BFD_WebDev/images/35X35.gif" alt="Generic placeholder image">
-              <div class="media-body">
-                <h5 class="mt-0 mb-1">Heading 2</h5>
-                <p class="mb-0">And then quote the boring lady&nbsp;&nbsp;</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-12">
-          <h2>About Us</h2>
-          <p>Group I-8 recognized a massive need for the publication of this data. We knew that if we didn't deploy by Friday, Dec 3, then 50 other similar websites with the same data was going to rise from the dust and steal our troph. So we acted fast and promptly. And now, hopefully we win the prize in tex....as ?!?!?!&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-          <p>More important, government officials and public health offices have made known to the rising concern of prescription drug abuse and reached out to us for help in creating the tool for health professionals, government agencies and citizens alike.&nbsp; &nbsp; &nbsp; &nbsp;</p>
-        </div>
-      </div>
-    </div>
-    <hr>
-
 {%endblock%}
-<!-- 
-GOOD IDEAS
---- https://www.hhs.gov/overdose-prevention/
-TOP LEFT
--- Logo  
-TOP RIGHT 
--- search bar
-
-    LINKS 
------- HOME    ------ ABOUT ------ GRAPHS? -----
-1. Put a description or VIDEO? of WHY this is important
-2. Explain what the APP does (our motto/ slogan) 
-    -- this helps UH view data
-    -- NEED to view prescriptions being made (for government and doctors)
-    -- PORTAL
-    --
-3. Dynamic graphs that update4. -->
-
-<!--div class="boxtop">
-        <a class="mybutton" href="{% url 'allDrugs'  %}">Show All Drugs</a>
-        <br>
-        <br>
-        <a class="mybutton" href="{% url 'allPrescribers' %}">Show All Prescribers</a>
-        <br>
-        <br>
-        <a class="mybutton" href="{% url 'searchPrescriber' %}">Find A Prescriber</a>
-        <br>
-        <br>
-        <a class="mybutton" href="{% url 'searchDrug' %}">Find A Drug</a>  
-</div>
--->
-

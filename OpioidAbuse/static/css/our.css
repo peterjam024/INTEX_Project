@@ -89,6 +89,7 @@ html, body {
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 3rem;
+    border-radius: 11px;
 }
 
 .mybutton:hover
@@ -101,19 +102,15 @@ html, body {
 }
 .mybutton2:link,.mybutton2:visited
 {
-    border: thick;
-    border-style: dashed;
     color: white;
     text-decoration: none;
-    margin-top: 6rem;
-    margin-right: 6rem;
-    margin-bottom: 6rem;
-    margin-left: 6rem;
     width: 4rem;
-    padding-right: 3rem;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 3rem;
+    margin: .5rem;
+    margin-top: 3px;
+    padding-right: 1rem;
+    padding-top: 3px;
+    padding-bottom: px;
+    padding-left: 1rem;
 }
 
 .mybutton2:hover
@@ -163,30 +160,70 @@ th{
     background: rgba(0,0,0,0.80)
     }
 th, td {
-    color: black;
+    color: white;
     border-bottom: 1px solid #ddd;
     text-align: left;
     padding: 5px;
 }
 tr:nth-child(even) {
-    background-color:rgba(255,241,6,0.27);
+  background-color: rgba(0,0,0,0.40);
+    color: rgba(121,121,121,1.00)
 }
-tr:nth-child(even):hover {
-    background-color:rgba(255,241,6,0.10);
+tr:nth-child(odd) {
+  background-color: rgba(0,0,0,0.50);
+    color: rgba(121,121,121,1.00)
 }
+tr:nth-child:hover {
+  background-color: rgba(0,0,0,0.60);
+    color: rgba(121,121,121,1.00)
+}
+
 
 .parent{
     display: grid;
-    grid-template-columns:auto auto;
+    grid-template-columns:1fr 2fr;
+    grid-column-gap: 2rem;
+    grid
 }
-.card1{
+.intro{
+    max-height: 1000px;
     width: 100%;
-    padding-right: 15rem;
+    height: 800px;
+    padding-top: 2rem;   
 }
-.card2{
+.intro-text{
+    padding-left: 2rem;
+}
+.intro .mybutton{
+    line-height: 54px;
+    margin-left: 18px;
+}
+   .card{
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 1000px;
     width: 100%;
-    padding-right: 15rem;
-    border:thin groove rgba(151,151,151,0.20)
+    background: rgba(0,0,0,0.01);
+    height: 800px;
+    padding-top: 2rem;
+    border-radius: 16px;
+}
+table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+th{
+  background: rgba(37,36,13,1.00);
+            
+        }
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  margin: 8rem;
+  color: rgba(249,246,235,1.00)
+    
 }
 /* this is the scrolling stuff*/
 .scroll {
@@ -227,3 +264,7 @@ tr:nth-child(even):hover {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+.wrapper.overflow {
+  overflow-y: scroll;
+  display: inline-block;
+}
