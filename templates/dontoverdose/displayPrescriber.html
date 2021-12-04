@@ -2,8 +2,10 @@
 {% load static %}
 {% block content %}
 <div >
+    <a class="nav-link" href="{% url 'allPrescribers' %}"><button>See all prescribers</button></a>
+
     {% for prescriber in our_prescribers %}
-    <p>  
+    <p >  
         {{ prescriber.npi }}
         {{ prescriber.fname }}
         {{ prescriber.lname }}
@@ -29,7 +31,9 @@
     </p>
     {% endfor %} {% endcomment %}
 
-    
+    <a class="nav-link" href="{% url 'searchPrescriber' %}"><button>Back</button></a>
+
+
 </div>
 {% endblock %}
 

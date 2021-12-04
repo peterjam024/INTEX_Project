@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 {%load static %}
 {% block content %}
-
 <div class="topheader">
-    <h1>Prescribers</h1>
+    <h1>Drugs</h1>
     <h2>Real hard stuff to swollow goes here&nbsp;</h2>
       <p>Write here till your heart is content</p>
   </div>
   
   
-    <table class="tablesize">
+  <table class="tablesize">
+    <tr>
+        <th>    </th>
+        <th style="text-align: center;">Drug Name</th>
+        <th>Is Opioid?</th>
+    </tr>
+    {% for drug in drug_list %}           
         <tr>
           <th>Drug Name</th>
           <th>Opioid?</th>
@@ -28,32 +33,4 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>   
   </body>
   </html>
-{% comment %} <div class="row padding">
-    <div class="column">
-        <h1>DRUGS</h1>
-    </div>
-</div>
-​
-<br><br>
-​
-<div class="centered">
-    <table>
-        <tr>
-            <th>    </th>
-            <th style="text-align: center;">Drug Name</th>
-            <th>Is Opioid?</th>
-        </tr>
-        {% for drug in drug_list %}           
-            <tr>
-               <td> </td>
-                <td style="text-align: center;">
-                    {{drug.drugname}}   
-                </td>
-                <td style="text-align: center;">
-                    {{drug.isopioid}}   
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-</div> {% endcomment %}
 {%endblock%}

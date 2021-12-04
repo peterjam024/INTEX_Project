@@ -28,6 +28,10 @@ def aboutPageView(request):
     return render(request, "dontoverdose/about.html")
 
 
+def contactPageView(request):
+    return render(request, "dontoverdose/contact.html")
+
+
 def showAllDrugsPageView(request):
     drug_list = Drugs.objects.all()
     context = {
@@ -89,7 +93,10 @@ def displayPrescriberPageView(request):
 def displayDrugPageView(request):
     name = request.GET['name']
     # opioid_label = request.GET['is_opiate']
-    data = Drugs.objects.filter(drugname=name)  # , isopioid=opioid_label)
+    # , isopioid=opioid_label)
+    # need to make this so it can be lowercase or whatever!!!
+
+    data = Drugs.objects.filter(drugname__iexact=name)
 
     if data.count() > 0:
         context = {
@@ -109,6 +116,10 @@ def addPrescriberPageView(request):
 
 
 def storePrescriberPageView(request):
+    # check that there is data, if not then tell the user!
+    # if new_prescriber.npi is None:
+    # HttpResponse("You need data ")
+
     # Check to see if the form method is a get or post
     if request.method == 'POST':
 
@@ -117,6 +128,7 @@ def storePrescriberPageView(request):
 
         # Store the data from the form to the new object's attributes (like columns)
         new_prescriber.npi = request.POST.get('NPI')
+
         new_prescriber.fname = request.POST.get('first_name')
         new_prescriber.lname = request.POST.get('last_name')
         new_prescriber.gender = request.POST.get('prescriber_gender')
