@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div >
+<br><br><br><br><br><br><br><br>
+<div class="parent">
     <br><br>
-    <a class="nav-link" href="{% url 'allDrugs' %}"><button>See all drugs</button></a>
+    <div>
+        <a  href="{% url 'allDrugs' %}"><button>See all drugs</button></a>
+        <a  href="{% url 'searchDrug' %}"><button>Search for another drug</button></a>
+    </div>
     <br><br>
     {% for drug in our_drugs %}
     <p>  
@@ -11,8 +15,7 @@
         {{ drug.isopioid }}
     </p>
     {% endfor%}
-    <a class="nav-link" href="{% url 'searchDrug' %}"><button>Back</button></a>
-
+   
 </div>
 {% endblock %}
 <!--

@@ -73,7 +73,7 @@ def displayPrescriberPageView(request):
         }
         return render(request, 'dontoverdose/displayPrescriber.html', context)
     else:
-        return HttpResponse("Not found")
+        return render(request, "dontoverdose/badSearchPrescriber.html")
 
 
 # SEARCHES FOR DRUGS #####################
@@ -81,11 +81,12 @@ def displayPrescriberPageView(request):
 
 def displayDrugPageView(request):
     name = request.GET['name']
+    nameUpper = name.upper()
     # opioid_label = request.GET['is_opiate']
     # , isopioid=opioid_label)
     # need to make this so it can be lowercase or whatever!!!
 
-    data = Drugs.objects.filter(drugname__iexact=name)
+    data = Drugs.objects.filter(drugname__contains=nameUpper)
 
     if data.count() > 0:
         context = {
@@ -93,7 +94,7 @@ def displayDrugPageView(request):
         }
         return render(request, 'dontoverdose/displayDrug.html', context)
     else:
-        return HttpResponse("Not found")
+        return render(request, "dontoverdose/badSearchDrug.html")
 
 # this will pull up the ADD PRESCRIBER page
 
