@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{%block content%}
+{%load static %}
+<section>
+<div class="parent">
+    <div class="card1">
+        <div class="topheader">
+            <h1>Prescribers</h1>
+        </div>
+
+        {% comment %} <div class="centered">
+
+                    <a class="mybutton"method="get" action="{% url 'addPrescriber' %}">Add New Prescriber</a>
+        </div> {% endcomment %}
+    <div class="card2">
+        <div class="tablesize-p" style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>NPI</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>State</th> 
+                    <th>Credentials</th> 
+                    <th style="text-align: center;">Specialty</th>
+                    <th>Is Opioid Prescriber?</th> 
+                    <th>Total Prescriptions</th> 
+                    <th></th>
+                </tr>
+
+                {% for prescriber in prescriber_list %}           
+                    <tr>
+                        <td style="text-align: center;">
+                            {{prescriber.npi}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.fname}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.lname}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.gender}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.state}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.credentials}}
+                        </td>
+                        <td style="text-align: center;">
+                                {{prescriber.specialty}}
+                        </td>
+                        <td style="text-align: center;">
+                            {{prescriber.isopioidprescriber}}
+                        </td>
+                        <td style="text-align: center;">
+                            {{prescriber.totalprescriptions}}
+                        </td>
+                        <td>
+
+                            <a class="mybutton" href="{% url 'deletePrescriberforreal' NPI=prescriber.npi %}">Confirm Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %} 
+            </table>
+        </div>
+    </div>
+</div>
+</section>
+{%endblock%}

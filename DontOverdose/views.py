@@ -216,9 +216,16 @@ def updatePrescriber(request):
 
     return showAllPrescribersPageView(request)
 
+def deletePrescriber(request, NPI):
+    data=Prescriber.objects.get(npi=NPI)
+    prescriber_list = Prescriber.objects.filter(npi = NPI)
+    context = {
+        'prescriber_list': prescriber_list,
+    }
+    return render(request, "dontoverdose/deleteprescriber.html", context)
 
 # delete a prescriber
-def deletePrescriber(request, NPI):
+def deletePrescriberforreal(request, NPI):
     data = Prescriber.objects.get(npi=NPI)
     # ARE YOU SURE FUNCTION
     # IF STATEMENT= if the NPI doesn't exist, redirects
