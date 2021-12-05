@@ -52,8 +52,8 @@ class State(models.Model):
 # good on this and the state
 class Prescriber (models.Model):
     npi = models.IntegerField(primary_key=True)
-    fname = models.CharField(max_length=11)
-    lname = models.CharField(max_length=11)
+    fname = models.CharField(max_length=30)
+    lname = models.CharField(max_length=30)
     gender = models.CharField(max_length=1)
     # state = models.ForeignKey( 'State', null=True, blank=True, on_delete=models.SET_NULL)
     state = models.CharField(max_length=2)

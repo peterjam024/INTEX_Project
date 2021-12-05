@@ -30,7 +30,7 @@
             <tr>
                 <td>
                     <!-- gender --> 
-                    <label for='prescriber_gender'>Enter the gender:</label>
+                    <label for='prescriber_gender'>Select the gender:</label>
                     <select name='prescriber_gender' id='gender' required>
                         <option value= "M">Male</option>
                         <option value= "F">Female</option>
@@ -41,15 +41,80 @@
             <tr>
                 <td>
                     <!-- credentials --> 
-                    <label for='prescriber_credentials'>Enter the credentials:</label>
-                    <input type="text" name='prescriber_credentials' id='credentials' required>
+                    {% comment %} <label for='prescriber_credentials'>Enter the credentials:</label>
+                    <input type="text" name='prescriber_credentials' id='credentials' required> {% endcomment %}
+
+                    <label for='prescriber_credentials'>Select the credentials:</label>
+                    <select name='prescriber_credentials' id='credentials' required>
+                        <option value= "M.D.">M.D.</option>
+                        <option value= "N.D.">N.D.</option>
+                        <option value= "R.A.">R.A.</option>
+                        <option value= "H.K.">H.K.</option>
+                        <option value= "Other">Other</option>
+                    </select>
                 </td>
             </tr>
             <tr>
                 <td>
                     <!-- location --> 
-                    <label for='location'>Enter the State:</label>
-                    <input type="text" name='location' id='state' required>
+                    {% comment %} <label for='location'>Enter the State:</label>
+                    <input type="text" name='location' id='state' required> {% endcomment %}
+
+                    <label for='location'>Select the State:</label>
+                    <select name='location' id='state' required>
+                        <option value= "AK">Alaska</option>
+                        <option value= "AL">Alabama</option>
+                        <option value= "AR">Arkansas</option>
+                        <option value= "AZ">Arizona</option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                        <option value= ""></option>
+                    </select>
                 </td>
             </tr>
             <tr>
