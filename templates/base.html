@@ -19,9 +19,9 @@
         <a class="collect" >Data Collection For Known Drugs</box>
         <a class="collect" href="{% url 'allPrescribers' %}">Who  Prescribes?</a>
         <a class="collect" href="{% url 'allDrugs' %}">Common Opioids</a>
-        <a class="collect" href="{% url 'contact' %}">Contact Us</a>
+        {% comment %} <a class="collect" href="{% url 'contact' %}">Contact Us</a> {% endcomment %}
         
-    <input class="searchbox" placeholder="Search">
+    {% comment %} <input class="searchbox" placeholder="Search the database"> {% endcomment %}
   </div> 
     
     <!-- This is what will link to the other pages-->
