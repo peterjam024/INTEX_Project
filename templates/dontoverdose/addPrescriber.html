@@ -31,7 +31,11 @@
                 <td>
                     <!-- gender --> 
                     <label for='prescriber_gender'>Enter the gender:</label>
-                    <input type="text" name='prescriber_gender' id='gender' required>
+                    <select name='prescriber_gender' id='gender' required>
+                        <option value= "M">Male</option>
+                        <option value= "F">Female</option>
+                    </select>
+                    {% comment %} <input type="text" name='prescriber_gender' id='gender' required> {% endcomment %}
                 </td>
             </tr>
             <tr>
@@ -58,8 +62,20 @@
             <tr>
                 <td>
                     <!-- ISOPOIOD --> 
-                    <label for='opioid_dealer'>Opioid Dealer? (True/False):</label>
-                    <input type="text" name='opioid_dealer' id='isopioidprescriber' required>
+                    {% comment %} <label for='opioid_dealer'>Opioid Dealer? (True/False):</label>
+                    <input type="text" name='opioid_dealer' id='isopioidprescriber' required> {% endcomment %}
+
+                    {% comment %} <label >Opioid Dealer?</label><br>
+                    <input type="radio" id='isopioidprescriber' name='True' value='TRUE' checked>
+                    <label for="True">True</label>
+                    <input type="radio" id='isopioidprescriber' name='False' value='FALSE'>
+                    <label for="False">False</label> {% endcomment %}
+
+                    <label for='opioid_dealer'>Opioid Dealer?</label>
+                    <select name='opioid_dealer' id='isopioidprescriber' required>
+                        <option value= "TRUE">True</option>
+                        <option value= "FALSE">False</option>
+                    </select>
                 </td>
             </tr>
             <tr>
