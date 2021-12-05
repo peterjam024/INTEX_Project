@@ -5,6 +5,100 @@
 
 <br><br><br>
 <a class="mybutton" href="{% url 'searchPrescriber' %}">Search for another prescriber</a>
+<br><br>
+<div >
+    <table>
+        <tr>
+            {% comment %} <th></th>
+            <th>NPI</th> {% endcomment %}
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>State</th> 
+            <th>Credentials</th> 
+            <th style="text-align: center;">Specialty</th>
+            <th>Is Opioid Prescriber?</th> 
+            <th>Total Prescriptions</th> 
+            
+        </tr>
+
+{% for prescriber in our_prescribers %}           
+        <tr>
+            <td style="text-align: center;">
+                    {{prescriber.fname}}
+            </td>
+            <td style="text-align: center;">
+                    {{prescriber.lname}}
+            </td>
+            <td style="text-align: center;">
+                    {{prescriber.gender}}
+            </td>
+            <td style="text-align: center;">
+                    {{prescriber.state}}
+            </td>
+            <td style="text-align: center;">
+                    {{prescriber.credentials}}
+            </td>
+            <td style="text-align: center;">
+                    {{prescriber.specialty}}
+            </td>
+            <td style="text-align: center;">
+                {{prescriber.isopioidprescriber}}
+            </td>
+            <td style="text-align: center;">
+                {{prescriber.totalprescriptions}}
+            </td>
+            
+        </tr>
+{% endfor %} 
+    </table>
+
+<table>
+
+<tr>
+    {% comment %} <th></th>
+    <th>NPI</th> {% endcomment %}
+    <th style="text-align: center;">Drug Name</th>
+    <th style="text-align: center;">Total Count Sold By Prescriber</th>
+    <th style="text-align: center;">Average sold by all prescribers</th>
+    
+    
+</tr>
+
+<br>
+{% comment %} <p>LIST OF ALL THE DRUGS {% endcomment %}
+<br>
+
+{% for Triple in our_drugs %}
+<tr>
+    <td style="text-align: center;">
+
+        {{ Triple.drugname }}
+     </td>
+    <td style="text-align: center;">
+        {{ Triple.qtyprescribed }}   
+    </td>
+{%endfor%}
+</table>
+</div>
+
+
+ 
+</table>
+</div>
+
+
+</div>
+
+</section>
+
+
+{% endblock %}
+
+
+
+<!-- PAST CODE
+
 
 {% for prescriber in our_prescribers %}           
 <tr>
@@ -39,31 +133,13 @@
     <td style="text-align: center;">
         {{prescriber.totalprescriptions}}
     </td>
-    <td style="text-align: center;">
+    {% comment %} <td style="text-align: center;">
         {{prescriber.drugname}}
     </td>
     <td style="text-align: center;">
         {{prescriber.qtyprescribed}}
-    </td>
+    </td> {% endcomment %}
 </tr>
-{% endfor %} 
-</table>
-</div>
+{% endfor %}
 
-
-</div>
-
-</section>
-
-<div>
-    {% for Triple in our_drugs %}
-    <p>
-
-        {{ Triple.drugname }}
-        {{ Triple.qtyprescribed }}
-          
-    </p>
-    {% endfor %}
-</div>
-
-{% endblock %}
+-->
