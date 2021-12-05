@@ -6,7 +6,8 @@
 <div class="parent">
     <div class="card1">
         <div class="topheader">
-            <h1>Prescribers</h1>
+            <h1>Confirm delete?</h1>
+            <p>Click the confirm button to permanently delete the prescriber.
         </div>
 
         {% comment %} <div class="centered">
@@ -17,8 +18,8 @@
         <div class="tablesize-p" style="overflow-x:auto;">
             <table>
                 <tr>
-                    <th></th>
-                    <th>NPI</th>
+                    
+                    {% comment %} <th>NPI</th> {% endcomment %}
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Gender</th>
@@ -27,14 +28,14 @@
                     <th style="text-align: center;">Specialty</th>
                     <th>Is Opioid Prescriber?</th> 
                     <th>Total Prescriptions</th> 
-                    <th></th>
+                    <th style="text-align: center;">Confirm Delete?</th>
                 </tr>
 
                 {% for prescriber in prescriber_list %}           
                     <tr>
-                        <td style="text-align: center;">
+                        {% comment %} <td style="text-align: center;">
                             {{prescriber.npi}}
-                        </td>
+                        </td> {% endcomment %}
                         <td style="text-align: center;">
                                 {{prescriber.fname}}
                         </td>
@@ -61,7 +62,7 @@
                         </td>
                         <td>
 
-                            <a class="mybutton" href="{% url 'deletePrescriberforreal' NPI=prescriber.npi %}">Confirm Delete</a>
+                            <a class="mybutton" href="{% url 'deletePrescriberforreal' NPI=prescriber.npi %}">Confirm</a>
                         </td>
                     </tr>
                 {% endfor %} 
