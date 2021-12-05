@@ -20,15 +20,15 @@
                         {% comment %} <th></th>
                         <th>NPI</th> {% endcomment %}
                         <th style="text-align: center;" >Show Top 10 Prescribers</th>
-                        <th>Drug Name</th>
-                        <th>Is Opioid?</th>
+                        <th style="text-align: center;">Drug Name</th>
+                        <th style="text-align: center;">Is Opioid?</th>
                         
                     </tr>
 
             {% for drug in our_drugs %}           
                     <tr>
                        
-                        <td>
+                        <td style="text-align: center;">
                             {% comment %} <form name='form' method="get" action = {% url 'show_prescribed_drugs' %}>
                                 <label for='NPI' ></label>
                                 <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}> 

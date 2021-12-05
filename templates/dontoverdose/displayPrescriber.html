@@ -31,15 +31,17 @@
                     <tr>
                         {% comment %} <th></th>
                         <th>NPI</th> {% endcomment %}
-                        <th>Get Drug Information</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Gender</th>
-                        <th>State</th> 
-                        <th>Credentials</th> 
+                        <th style="text-align: center;">Edit</th>
+                        <th style="text-align: center;">Get Drug Information</th>
+                        <th style="text-align: center;">First Name</th>
+                        <th style="text-align: center;">Last Name</th>
+                        <th style="text-align: center;">Gender</th>
+                        <th style="text-align: center;">State</th> 
+                        <th style="text-align: center;">Credentials</th> 
                         <th style="text-align: center;">Specialty</th>
-                        <th>Is Opioid Prescriber?</th> 
-                        <th>Total Prescriptions</th> 
+                        <th style="text-align: center;">Is Opioid Prescriber?</th> 
+                        <th style="text-align: center;">Total Prescriptions</th> 
+                        <th style="text-align: center;">Delete</th>
                         
                     </tr>
 
@@ -52,12 +54,15 @@
                             {{prescriber.npi}}
                         </td> {% endcomment %}
                         <td>
+                            <a class="mybutton2" href="{% url 'singlePrescriber' NPI=prescriber.npi %}">Edit</a>
+                        </td>
+                        <td style="text-align: center;">
                             <form name='form' method="get" action = {% url 'show_prescribed_drugs' %}>
                                 <label for='NPI' ></label>
                                 <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}> 
-                                <div class="button2">
+                                {% comment %} <div class="button2"> {% endcomment %}
                                     <button type = "submit">Click Me!</button>
-                                </div>
+                                {% comment %} </div> {% endcomment %}
                             </form>        
                         </td>
                         <td style="text-align: center;">
@@ -84,7 +89,9 @@
                         <td style="text-align: center;">
                             {{prescriber.totalprescriptions}}
                         </td>
-                        
+                        <td>
+                            <a class="mybutton2"href="{% url 'deletePrescriber' NPI=prescriber.npi %}">Delete</a>
+                        </td>
                     </tr>
         {% endfor %} 
         </table>

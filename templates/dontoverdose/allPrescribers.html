@@ -19,17 +19,17 @@
             <div class="card">
                 <table>
                     <tr>
-                        <th></th>
-                        <th>NPI</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Gender</th>
-                        <th>State</th> 
-                        <th>Credentials</th> 
+                        <th style="text-align: center;">Edit Prescriber</th>
+                        {% comment %} <th>NPI</th> {% endcomment %}
+                        <th style="text-align: center;">First Name</th>
+                        <th style="text-align: center;">Last Name</th>
+                        <th style="text-align: center;">Gender</th>
+                        <th style="text-align: center;">State</th> 
+                        <th style="text-align: center;">Credentials</th> 
                         <th style="text-align: center;">Specialty</th>
-                        <th>Is Opioid Prescriber?</th> 
-                        <th>Total Prescriptions</th> 
-                        <th></th>
+                        <th style="text-align: center;">Is Opioid Prescriber?</th> 
+                        <th style="text-align: center;">Total Prescriptions</th> 
+                        <th style="text-align: center;">Delete Prescriber</th>
                     </tr>
 
         {% for prescriber in prescriber_list %}           
@@ -37,9 +37,9 @@
                         <td>
                             <a class="mybutton2" href="{% url 'singlePrescriber' NPI=prescriber.npi %}">Edit</a>
                         </td>
-                        <td style="text-align: center;">
+                        {% comment %} <td style="text-align: center;">
                             {{prescriber.npi}}
-                        </td>
+                        </td> {% endcomment %}
                         <td style="text-align: center;">
                                 {{prescriber.fname}}
                         </td>

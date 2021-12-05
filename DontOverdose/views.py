@@ -182,13 +182,12 @@ def show_prescribed_drugs(request):
     iNPI = request.GET['NPI']
 
     data = Triple.objects.filter(npi=iNPI)
-    data2 = Prescriber.objects.filter(npi = iNPI)
+    data2 = Prescriber.objects.filter(npi=iNPI)
     context = {
         "our_drugs": data,
-        "our_prescribers" : data2
+        "our_prescribers": data2
     }
     return render(request, 'dontoverdose/displayPrescriberAndDrugs.html', context)
-
 
 ##### editing a specific prescriber #########
 
@@ -216,15 +215,18 @@ def updatePrescriber(request):
 
     return showAllPrescribersPageView(request)
 
+
 def deletePrescriber(request, NPI):
-    data=Prescriber.objects.get(npi=NPI)
-    prescriber_list = Prescriber.objects.filter(npi = NPI)
+    data = Prescriber.objects.get(npi=NPI)
+    prescriber_list = Prescriber.objects.filter(npi=NPI)
     context = {
         'prescriber_list': prescriber_list,
     }
     return render(request, "dontoverdose/deleteprescriber.html", context)
 
 # delete a prescriber
+
+
 def deletePrescriberforreal(request, NPI):
     data = Prescriber.objects.get(npi=NPI)
     # ARE YOU SURE FUNCTION
