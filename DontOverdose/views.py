@@ -181,11 +181,11 @@ def showSinglePrescriberPageView(request, NPI):
 def show_prescribed_drugs(request):
     iNPI = request.GET['NPI']
 
-    data = Triple.objects.filter(npi=iNPI).values_list(
-        "drugname", "qtyprescribed")
-
+    data = Triple.objects.filter(npi=iNPI)
+    data2 = Prescriber.objects.filter(npi = iNPI)
     context = {
-        "our_drugs": data
+        "our_drugs": data,
+        "our_prescribers" : data2
     }
     return render(request, 'dontoverdose/displayPrescriberAndDrugs.html', context)
 

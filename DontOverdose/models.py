@@ -86,6 +86,7 @@ class Triple (models.Model):
     #     'Prescriber', null=True, blank=True, on_delete=models.SET_NULL)
     # drugname = models.ForeignKey(
     #     'Drugs', null=True, blank=True, on_delete=models.SET_NULL)
+    id = models.BigIntegerField(primary_key=True)
     npi = models.IntegerField()
     drugname = models.CharField(max_length=30)
     qtyprescribed = models.IntegerField()

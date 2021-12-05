@@ -6,13 +6,61 @@
 <br><br><br>
 <a class="mybutton" href="{% url 'searchPrescriber' %}">Search for another prescriber</a>
 
+{% for prescriber in our_prescribers %}           
+<tr>
+    {% comment %} <td>
+        <a class="mybutton2" href="{% url 'singlePrescriber' NPI=prescriber.npi %}">Edit</a>
+    </td>
+    <td style="text-align: center;">
+        {{prescriber.npi}}
+    </td> {% endcomment %}
+
+    <td style="text-align: center;">
+            {{prescriber.fname}}
+    </td>
+    <td style="text-align: center;">
+            {{prescriber.lname}}
+    </td>
+    <td style="text-align: center;">
+            {{prescriber.gender}}
+    </td>
+    <td style="text-align: center;">
+            {{prescriber.state}}
+    </td>
+    <td style="text-align: center;">
+            {{prescriber.credentials}}
+    </td>
+    <td style="text-align: center;">
+            {{prescriber.specialty}}
+    </td>
+    <td style="text-align: center;">
+        {{prescriber.isopioidprescriber}}
+    </td>
+    <td style="text-align: center;">
+        {{prescriber.totalprescriptions}}
+    </td>
+    <td style="text-align: center;">
+        {{prescriber.drugname}}
+    </td>
+    <td style="text-align: center;">
+        {{prescriber.qtyprescribed}}
+    </td>
+</tr>
+{% endfor %} 
+</table>
+</div>
+
+
+</div>
+
+</section>
 
 <div>
-    {% for triple in our_drugs %}
+    {% for Triple in our_drugs %}
     <p>
 
-        {{ triple.drugname }} is this even running?
-        {{ triple.qtyprescribed }}
+        {{ Triple.drugname }}
+        {{ Triple.qtyprescribed }}
           
     </p>
     {% endfor %}
