@@ -2,7 +2,7 @@
 from django.urls import path
 
 # This is accessing the views/funcitons that we wrote on views.py!!
-from .views import addPrescriberPageView, deletePrescriber, displayDrugPageView, displayPrescriberPageView,  indexPageView, loadOurFindings, loadOurImplementation, searchPresriberPageView, showAllDrugsPageView, showAllPrescribersPageView, showSinglePrescriberPageView, storePrescriberPageView, updatePrescriber, show_prescribed_drugs, deletePrescriberforreal
+from .views import addPrescriberPageView, deletePrescriber, displayDrugPageView, displayPrescriberPageView,  indexPageView, loadOurFindings, loadOurImplementation, searchPresriberPageView, showAllDrugsPageView, showAllPrescribersPageView, showSinglePrescriberPageView, sqlStatsView, storePrescriberPageView, updatePrescriber, show_prescribed_drugs, deletePrescriberforreal
 from .views import aboutPageView, contactPageView
 from .views import searchDrugPageView
 # we create the path with this syntax
@@ -32,16 +32,7 @@ urlpatterns = [
          name="show_prescribed_drugs"),
     path("contact/", contactPageView, name="contact"),
     path("pdf/", loadOurFindings, name='pdf'),
-    path("implementation", loadOurImplementation, name="implementation")
+    path("implementation", loadOurImplementation, name="implementation"),
+    path('sql/', sqlStatsView, name='sql')
 
-    # path(
-    #     "aboutData/<str:trip_name>/<int:trip_length>",
-    #     aboutPageDataView,
-    #     name="aboutData",
-    # ),
-    # # this path goes to the view that will display DATABASE data!
-    # path("students/", displayStudentView, name="student"),
-    # # this path goes to the view that will display DATABASE data PART 2!
-    # path("searchemp/", searchEmpPageView, name="searchEmp"),
-    # # path("About/", aboutPageView, name="about"),]
 ]

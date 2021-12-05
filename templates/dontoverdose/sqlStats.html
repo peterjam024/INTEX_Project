@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<br><br><br>
+<a class="mybutton" href="{% url 'index' %}">Back to Home</a>
+<br><br>
+<div >
+    <!--
+    <table>
+        <tr>
+            {% comment %} <th></th>
+            <th>NPI</th> {% endcomment %}
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>State</th> 
+            <th>Credentials</th> 
+            <th style="text-align: center;">Specialty</th>
+            <th>Is Opioid Prescriber?</th> 
+            <th>Total Prescriptions</th> 
+            
+        </tr>
+
+{% for prescriber in our_prescribers %}           
+        <tr>
+            <td style="text-align: center;">
+                    {{prescriber.fname}}
+            </td>
+            <td style="text-align: center;">
+                    {{prescriber.lname}}
+            </td>
+            <td style="text-align: center;">
+                    {{prescriber.gender}}
+            </td>
+            <td style="text-align: center;">
+                    {{prescriber.state}}
+            </td>
+            <td style="text-align: center;">
+                    {{prescriber.credentials}}
+            </td>
+            <td style="text-align: center;">
+                    {{prescriber.specialty}}
+            </td>
+            <td style="text-align: center;">
+                {{prescriber.isopioidprescriber}}
+            </td>
+            <td style="text-align: center;">
+                {{prescriber.totalprescriptions}}
+            </td>
+            
+        </tr>
+{% endfor %} 
+    </table>
+-->
+<table>
+
+<tr>
+    {% comment %} <th></th>
+    <th>NPI</th> {% endcomment %}
+    <th style="text-align: center;">Information Explanation</th>
+    <th style="text-align: center;">Total Count</th>
+    {% comment %} <th style="text-align: center;">Average sold by all prescribers</th> {% endcomment %}
+    
+    
+</tr>
+
+<br>
+{% comment %} <p>LIST OF ALL THE DRUGS {% endcomment %}
+<br>
+
+
+{% comment %} ROW 1...SQL 1 {% endcomment %}
+<tr>
+    <td style="text-align: center;">
+        Number of people selling drugs
+     </td>
+    <td style="text-align: center;">
+        1  
+    </td>
+</tr>
+
+
+{% comment %} ROW 2...SQL 2 {% endcomment %}
+<tr>
+    <td style="text-align: center;">
+        Average count of all
+     </td>
+    <td style="text-align: center;">
+        100  
+    </td>
+</tr>
+
+</table>
+</div>
+
+
+
+
+
+{% comment %} 
+{% for Triple in our_drugs %}
+<tr>
+    <td style="text-align: center;">
+
+        {{ Triple.drugname }}
+     </td>
+    <td style="text-align: center;">
+        {{ Triple.qtyprescribed }}   
+    </td>
+{%endfor%}
+</table>
+</div>
+
+ {% endcomment %}
+ 
+</table>
+</div>
+
+
+</div>
+
+</section>
+
+
+{% endblock %}
+

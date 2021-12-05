@@ -50,6 +50,10 @@ def contactPageView(request):
     return render(request, "dontoverdose/contact.html")
 
 
+def sqlStatsView(request):
+    return render(request, "dontoverdose/sqlStats.html")
+
+
 def showAllDrugsPageView(request):
     drug_list = Drugs.objects.all()
     context = {

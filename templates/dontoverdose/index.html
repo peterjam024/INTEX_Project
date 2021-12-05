@@ -79,9 +79,18 @@
        <h5 class="card-title">U.S.A Deaths</h5>
        <p class="card-text">Percentages by state</p>
        <br> 
-       <a href="#" class="mybutton">More Stats &amp; Analytics&nbsp;&nbsp;</a>
+       <a href="{% url 'sql'%}" class="mybutton">More Stats &amp; Analytics&nbsp;&nbsp;</a>
      </div>
      <br>
+     <div class="card-body">
+      <h5 class="card-title">Want to know more?</h5>
+      <p class="card-text">Learn about the current crisis by following the link below.</p>
+      <br>      
+      {% comment %} <a href="#" class="mybutton">More Stats &amp; Analytics&nbsp;&nbsp;</a> {% endcomment %}
+      <a href="https://www.fda.gov/drugs" class="mybutton">Click Me to Learn More</a>
+
+    </div>
+    <br>
    </div>
  </div>
  <div class="col-sm-6">
@@ -96,6 +105,18 @@
        <p class="card-text">Know of a medical provider not on the list?&nbsp;&nbsp;</p>
        <br>
        <a class="mybutton" href="{% url 'addPrescriber'%}">Register A Physician&nbsp;</a>
+       <br><br><br>
+       <p class="card-text">Contact Us</p>
+       <br>
+       <a class="mybutton" href="#contactbottom">Click</a>
+       <br><br><br>
+       <p class="card-text">Testimonials</p>
+       <br>
+       <a class="mybutton" href="#testimonials">Click</a>
+       <br><br><br>
+       <p class="card-text">About Us</p>
+       <br>
+       <a class="mybutton" href="#aboutUs">Click</a>
        <br><br>
      </div>
      
