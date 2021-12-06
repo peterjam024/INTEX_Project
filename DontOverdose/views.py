@@ -149,8 +149,8 @@ def storePrescriberPageView(request):
         # Store the data from the form to the new object's attributes (like columns)
         new_prescriber.npi = request.POST.get('NPI')
 
-        new_prescriber.fname = request.POST.get('first_name')
-        new_prescriber.lname = request.POST.get('last_name')
+        new_prescriber.fname = request.POST.get('first_name').capitalize()
+        new_prescriber.lname = request.POST.get('last_name').capitalize()
         new_prescriber.gender = request.POST.get('prescriber_gender')
         new_prescriber.state = request.POST.get('location')
         new_prescriber.credentials = request.POST.get('prescriber_credentials')

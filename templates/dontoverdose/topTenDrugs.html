@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<br><br><br>
+<a class="mybutton" href="{% url 'searchDrug' %}">Search for another drug</a>
+<br><br>
+<h1>Drug</h1>
+
+<div >
+    <table>
+        <tr>
+            {% comment %} <th></th>
+            <th>NPI</th> {% endcomment %}
+            <th style="text-align: center;">Drug Name</th>
+            <th style="text-align: center;">Is Opioid?</th>
+            
+        </tr>
+
+    {% for drug in our_drugs %}           
+        <tr>
+            <td style="text-align: center;">
+                    {{drug.drugname}}
+            </td>
+            <td style="text-align: center;">
+                    {{drug.isopioid}}
+            </td>
+        </tr>
+    {% endfor %} 
+    </table>
+</div>
+<br>
+
+
+<table>
+
+<tr>
+    <th style="text-align: center;">Prescriber NPI</th>
+    <th style="text-align: center;">Total Sold By Prescriber </th>
+</tr>
+
+
+<h1>Prescriber Information</h1>
+
+{% for Triple in our_drugs %}
+<tr>
+    <td style="text-align: center;">
+
+        {{ Triple.npi }}
+     </td>
+    <td style="text-align: center;">
+        {{ Triple.qtyprescribed }}   
+    </td>
+{%endfor%}
+</table>
+</div>
+
+
+ 
+</table>
+</div>
+
+
+</div>
+
+</section>
+
+
+{% endblock %}
+
+

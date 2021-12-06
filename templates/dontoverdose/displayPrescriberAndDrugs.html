@@ -6,6 +6,8 @@
 <br><br><br>
 <a class="mybutton" href="{% url 'searchPrescriber' %}">Search for another prescriber</a>
 <br><br>
+<h1>Prescriber</h1>
+
 <div >
     <table>
         <tr>
@@ -50,24 +52,20 @@
             </td>
             
         </tr>
-{% endfor %} 
+    {% endfor %} 
     </table>
-
+</div>
+    <br>
+<div>
 <table>
 
 <tr>
-    {% comment %} <th></th>
-    <th>NPI</th> {% endcomment %}
     <th style="text-align: center;">Drug Name</th>
     <th style="text-align: center;">Total Count Sold By Prescriber</th>
     <th style="text-align: center;">Average sold by all prescribers</th>
-    
-    
 </tr>
 
-<br>
-{% comment %} <p>LIST OF ALL THE DRUGS {% endcomment %}
-<br>
+<h1>Drug Information</h1>
 
 {% for Triple in our_drugs %}
 <tr>
@@ -77,6 +75,10 @@
      </td>
     <td style="text-align: center;">
         {{ Triple.qtyprescribed }}   
+    </td>
+    {% comment %} NOT SURE WHAT GOES HERE...JAMES HELP? {% endcomment %}
+    <td style="text-align: center;">
+        AVG GOES HERE
     </td>
 {%endfor%}
 </table>
