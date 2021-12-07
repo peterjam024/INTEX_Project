@@ -120,11 +120,72 @@ def displayDrugPageView(request):
 
     if data.count() > 0:
         context = {
-            "our_drugs": data
+            "our_drugs": data,
+            "druggo" : nameUpper
         }
         return render(request, 'dontoverdose/displayDrug.html', context)
     else:
         return render(request, "dontoverdose/badSearchDrug.html")
+
+
+
+####### THIS WILL MAKE THE List of the top 10 prescribers of this specific drug. #########
+
+def topTenDrugsPageView(request):
+    name = request.GET['drug_name']
+    nameUpper = name.upper()
+    # opioid_label = request.GET['is_opiate']
+    # , isopioid=opioid_label)
+    # need to make this so it can be lowercase or whatever!!!
+
+    data = Drugs.objects.filter(drugname__contains=nameUpper)
+    data2 = Triple.objects.filter(drugname__contains=nameUpper)
+    if data2.count() > 0:
+        return top10prescribersofdrugPageView(request, data, data2, nameUpper)
+
+
+    else:
+        return render(request, "dontoverdose/badSearchDrug.html")
+
+def top10prescribersofdrugPageView(request, data, data2, nameUpper):
+    drug_name = nameUpper
+    data3 = []
+    data4 = []
+    data6 = []
+    for chocolate in data2 :
+
+        data3.append(chocolate.qtyprescribed)
+    iCount2 =0
+    while iCount2 <11 :
+        max1 = 0
+        for i in data3 :
+            if i > max1 :
+                iCount = 1
+                max1 = i
+            elif i == max1 :
+                iCount += 1
+        for i in range(0,iCount) :
+            data4.append(max1)
+        for i in data3 :
+            if i == max1 :
+                data3.remove(i)
+        iCount2 = iCount2 + iCount
+    for prescribername in data2 :
+        for quantityprescribed in data4 :
+
+            if prescribername.qtyprescribed == quantityprescribed :
+                data6.append(prescribername.npi)
+        if len(data6) == 10 :
+            break
+
+    context = {
+        "our_drugs" : data,
+        "Drug_name" : data4,
+        "Prescriber_info" : data6,
+    }
+    return render(request, 'dontoverdose/topTenDrugs.html', context)
+
+
 
 # this will pull up the ADD PRESCRIBER page
 
@@ -182,16 +243,81 @@ def showSinglePrescriberPageView(request, NPI):
     return render(request, 'dontoverdose/updatePrescriber.html', context)
 
 
+#def show_prescribed_drugs(request):
+#    iNPI = request.GET['NPI']
+
+#    data = Triple.objects.filter(npi=iNPI)
+#    data2 = Prescriber.objects.filter(npi=iNPI)
+#    context = {
+#        "our_drugs": data,
+#        "our_prescribers": data2
+#    }
+#    return render(request, 'dontoverdose/displayPrescriberAndDrugs.html', context)
+
+
 def show_prescribed_drugs(request):
     iNPI = request.GET['NPI']
 
     data = Triple.objects.filter(npi=iNPI)
-    data2 = Prescriber.objects.filter(npi=iNPI)
+    data2 = Prescriber.objects.filter(npi = iNPI)
     context = {
         "our_drugs": data,
-        "our_prescribers": data2
+        "our_prescribers" : data2
     }
-    return render(request, 'dontoverdose/displayPrescriberAndDrugs.html', context)
+    return show_average_prescription(request, data, data2)
+#    return render(request, 'dontoverdose/displayPrescriberAndDrugs.html', context)
+
+def show_average_prescription(request, data, data2):
+    drugs = []
+    average = []
+    for drugname in data :
+        drugs.append(drugname.drugname)
+    context = {
+        "our_drugs" : data,
+        "our_prescribers" : data2,
+        "drugs" : drugs
+    }
+#    return render(request, 'dontoverdose/displayPrescriberAndDrugs.html', context)
+
+    return show_actual_prescription(request, data, data2, drugs, average)
+
+def show_actual_prescription(request, data, data2, drugs, average):
+    if len(drugs) > 0 :
+        data3 = Triple.objects.filter(drugname=drugs[0])
+        drugs.pop(0)
+        return actual_average_finally(request, data, data2, drugs, data3, average)
+    else :
+        context = {
+            "our_drugs" : data,
+            "our_prescribers" : data2,
+            "drugs" : drugs,
+            "average" : average,
+            "iCount" : 0
+        }
+        return render(request, 'dontoverdose/displayPrescriberAndDrugs.html', context)
+
+
+def actual_average_finally(request, data, data2, drugs, data3, average):
+    iaverage = 0
+    iCount = 0
+    for druggedup in data3 :
+        iaverage += int(druggedup.qtyprescribed)
+        iCount += 1
+    chocolate = iaverage/iCount
+    average.append(chocolate)
+    return show_actual_prescription(request, data, data2, drugs, average)
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##### editing a specific prescriber #########
 

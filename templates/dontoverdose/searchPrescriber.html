@@ -9,10 +9,7 @@
 <div class="parent">
     <form name="form" method="get" action="{% url 'displayPrescriber' %}">
         <h2>Search For A Prescriber</h2>
-        <!-- npi --> 
-        {% comment %} <label for='NPI'>Enter the NPI:</label>
-        <input type="text" name='NPI' id='npi'>
-        <br><br> {% endcomment %}
+
         <!-- first name --> 
         <label for='first_name'>Enter the first name:</label>
         <input type="text" name='first_name' id='fname' autofocus>
@@ -21,30 +18,6 @@
         <label for='last_name'>Enter the last name:</label>
         <input type="text" name='last_name' id='lname' >
         <br><br>
-        <!-- gender --> 
-        {% comment %} <label for='prescriber_gender'>Enter the gender:</label>
-        <input type="text" name='prescriber_gender' id='gender'>
-        <br><br>
-        <!-- location --> 
-        <label for='location'>Enter the State:</label>
-        <input type="text" name='location' id='state'>
-        <br><br>
-        <!-- credentials --> 
-        <label for='prescriber_credentials'>Enter the credentials:</label>
-        <input type="text" name='prescriber_credentials' id='credentials'>
-        <br><br>
-        <!-- specialty --> 
-        <label for='prescriber_specialty'>Enter the specialty:</label>
-        <input type="text" name='prescriber_specialty' id='specialty'>
-        <br><br>
-        <!-- opioid dude? --> 
-        <label for='opioid_dude?'>Deals Opioid? (True/False):</label>
-        <input type="text" name='opioid_dude?' id='isopioidprescriber'>
-        <br><br>
-        <!-- total --> 
-        <label for='total'>Total Prescriptions:</label>
-        <input type="text" name='total' id='totalprescriptions'>
-        <br><br> {% endcomment %}
        
         <button class="mybutton" type="submit">Search</button>
         <button class="mybutton" type="reset">Clear</button>

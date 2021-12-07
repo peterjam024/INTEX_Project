@@ -22,28 +22,26 @@
                         <th style="text-align: center;">Is Opioid?</th>
                     </tr>
 
-            {% for drug in our_drugs %}           
+                {% for drug in our_drugs %}           
                     <tr>
-                       
                         <td style="text-align: center;">
-                            {% comment %} <form name='form' method="get" action = {% url 'show_prescribed_drugs' %}>
-                                <label for='NPI' ></label>
-                                <input type="text"  name='NPI' id='NPI' hidden value={{prescriber.npi}}> 
-                                <div class="button2">
+                            <form name='form' method="get" action = {% url 'topTenDrugsPageView' %}>
+                                <label for='drug_name' ></label>
+                                <input type="text"  name='drug_name' id='drug_name' hidden value={{druggo}}> 
                                     <button type = "submit">Click Me!</button>
-                                </div>
-                            </form>         {% endcomment %}
+                            </form> 
                         </td>
                         <td style="text-align: center;">
-                            {{ drug.drugname }}
+                        {{ drug.drugname }}
+
                         </td>
                         <td style="text-align: center;">
                             {{ drug.isopioid }}
                         </td>
-                        
+
                     </tr>
-        {% endfor %} 
-        </table>
+                {% endfor %} 
+                </table>
             </div>
 
             
