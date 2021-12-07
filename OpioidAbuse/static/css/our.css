@@ -8,6 +8,9 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
+footer{
+    background-color: rgba(0,0,0,0.40);
+}
 .background{
     width: 100%;
 }
@@ -128,7 +131,7 @@ html, body {
 }
 .container {
     position: relative;
-    top: -12rem;
+    top:7px;
 }
 .row {
     border-radius: 30px;
