@@ -27,7 +27,7 @@
                         <td style="text-align: center;">
                             <form name='form' method="get" action = {% url 'topTenDrugsPageView' %}>
                                 <label for='drug_name' ></label>
-                                <input type="text"  name='drug_name' id='drug_name' hidden value={{druggo}}> 
+                                <input type="text"  name='drug_name' id='drug_name' hidden value={{drug.drugname}}> 
                                     <button type = "submit">Click Me!</button>
                             </form> 
                         </td>
