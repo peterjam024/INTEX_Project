@@ -190,7 +190,7 @@ tr:nth-child:hover {
 .tablealign{
     display: grid;
     grid-template-columns:2fr 1fr;
-    grid-column-gap: 3px;
+    grid-column-gap: -3px;
 }
 .intro{
     max-height: 1000px;
