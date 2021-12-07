@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
+<style>
+    .tablealign{
+        display: grid;
+        grid-template-columns:2fr 1fr;
+        grid-column-gap: -2px;
+    }
+</style>
 
 <br><br><br>
 <a class="mybutton" href="{% url 'searchPrescriber' %}">Search for another prescriber</a>
 <br><br>
 <h1>Prescriber</h1>
 
-<div class = "parentalign">
+<div>
     <table>
         <tr>
             {% comment %} <th></th>
@@ -55,42 +61,44 @@
     </table>
 </div>
     <br>
-<div class = "tabelalign">
-<table>
+    <h1>Drug Information</h1>
+<div class = "tablealign">
+    <div>
+    <table>
+        {% comment %} <h1 style="width:100%">Drug Information</h1> {% endcomment %}
+        <tr>
+            <th style="text-align: center;">Drug Name</th>
+            <th style="text-align: center;">Total Count Sold By Prescriber</th>
+        </tr>
+        {% for Triple in our_drugs %}
+        <tr>
+            <td style="text-align: center;">
 
-<tr>
-    <th style="text-align: center;">Drug Name</th>
-    <th style="text-align: center;">Total Count Sold By Prescriber</th>
-</tr>
-
-<h1>Drug Information</h1>
-
-{% for Triple in our_drugs %}
-<tr>
-    <td style="text-align: center;">
-
-        {{ Triple.drugname }}
-     </td>
-    <td style="text-align: center;">
-        {{ Triple.qtyprescribed }}   
-    </td>
+                {{ Triple.drugname }}
+            </td>
+            <td style="text-align: center;">
+                {{ Triple.qtyprescribed }}   
+            </td>
+        </tr>
     {% comment %} NOT SURE WHAT GOES HERE...JAMES HELP? {% endcomment %}
 {% comment %} <tr>  {% endcomment %}
 
 {% comment %} </tr> {% endcomment %}
-{%endfor%}
-
-</table>
-<table>
-<th style="text-align: center;">Average sold by all prescribers</th>
-{% for average in average%}
-<tr>
-    <td style="text-align: center;">
-        {{average}} 
-    </td>
-</tr>
-{%endfor%}
-</table>
+        {%endfor%}
+    </table>
+    </div>
+    <div>
+    <table>
+        <th style="text-align: center;">Average sold by all prescribers</th>
+            {% for average in average%}
+            <tr>
+                <td style="text-align: center;">
+                    {{average}} 
+                </td>
+            </tr>
+            {%endfor%}
+    </table>
+</div>
 </div>
 
 
