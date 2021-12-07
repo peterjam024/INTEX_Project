@@ -2,11 +2,7 @@
 from django.urls import path
 
 # This is accessing the views/funcitons that we wrote on views.py!!
-<<<<<<< Updated upstream
 from .views import addPrescriberPageView, deletePrescriber, displayDrugPageView, displayPrescriberPageView,  indexPageView, loadOurFindings, loadOurImplementation, searchPresriberPageView, showAllDrugsPageView, showAllPrescribersPageView, showSinglePrescriberPageView, sqlStatsView, storePrescriberPageView, topTenDrugsPageView, updatePrescriber, show_prescribed_drugs, deletePrescriberforreal
-=======
-from .views import addPrescriberPageView, deletePrescriber, displayDrugPageView, displayPrescriberPageView,  indexPageView, loadOurFindings, loadOurImplementation, mockupView, searchPresriberPageView, showAllDrugsPageView, showAllPrescribersPageView, showSinglePrescriberPageView, sqlStatsView, storePrescriberPageView, updatePrescriber, show_prescribed_drugs, deletePrescriberforreal
->>>>>>> Stashed changes
 from .views import aboutPageView, contactPageView
 from .views import searchDrugPageView
 # we create the path with this syntax
@@ -39,6 +35,6 @@ urlpatterns = [
     path("pdf/", loadOurFindings, name='pdf'),
     path("implementation", loadOurImplementation, name="implementation"),
     path('sql/', sqlStatsView, name='sql'),
-    path('mockup/', mockupView, name='mockup')
+#     path('mockup/', mockupView, name='mockup')
 
 ]

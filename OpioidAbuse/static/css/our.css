@@ -184,6 +184,11 @@ tr:nth-child:hover {
     grid-template-columns:1fr 2fr;
     grid-column-gap: 2rem;
 }
+.tablealign{
+    display: grid;
+    grid-template-columns:2fr 1fr;
+    grid-column-gap: 3px;
+}
 .intro{
     max-height: 1000px;
     width: 100%;

@@ -8,7 +8,7 @@
 <br><br>
 <h1>Prescriber</h1>
 
-<div >
+<div class = "parentalign">
     <table>
         <tr>
             {% comment %} <th></th>
@@ -21,7 +21,6 @@
             <th style="text-align: center;">Specialty</th>
             <th>Is Opioid Prescriber?</th> 
             <th>Total Prescriptions</th> 
-            
         </tr>
 
 {% for prescriber in our_prescribers %}           
@@ -56,13 +55,12 @@
     </table>
 </div>
     <br>
-<div>
+<div class = "tabelalign">
 <table>
 
 <tr>
     <th style="text-align: center;">Drug Name</th>
     <th style="text-align: center;">Total Count Sold By Prescriber</th>
-    <th>Average Sold by all Prescribers</th>
 </tr>
 
 <h1>Drug Information</h1>
@@ -76,23 +74,25 @@
     <td style="text-align: center;">
         {{ Triple.qtyprescribed }}   
     </td>
-        
-</tr>
     {% comment %} NOT SURE WHAT GOES HERE...JAMES HELP? {% endcomment %}
 {% comment %} <tr>  {% endcomment %}
-    {%endfor%}
 
+{% comment %} </tr> {% endcomment %}
+{%endfor%}
 
-{% for average in average %}           
-        <tr>
-            
-            <td style="text-align: center;">
-                {{average}}
-            </td>
-            
-        </tr>
-    {% endfor %} 
-    </table>
+</table>
+<table>
+<th style="text-align: center;">Average sold by all prescribers</th>
+{% for average in average%}
+<tr>
+    <td style="text-align: center;">
+        {{average}} 
+    </td>
+</tr>
+{%endfor%}
+</table>
+</div>
+
 
 </section>
 
