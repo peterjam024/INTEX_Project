@@ -131,7 +131,6 @@ html, body {
 }
 .container {
     position: relative;
-    top: -12rem;
 }
 .row {
     border-radius: 30px;
