@@ -9,9 +9,11 @@
       
        <img src="{% static 'img/KnowOpioidsfull.png'%}" style="width: 10%"><br>
     <span style="font-size: 30pt;color: rgba(236,212,35,0.06))">
-        Finally,
-    </span><br>
-        <span>Centralized Opioid Data</span><br><br>
+        {% comment %} Finally, {% endcomment %}
+    </span> 
+        <span>Centralized Opioid Data</span>
+        <br><br><br>
+        
   <div class="moveleft" style="position: relative;left: -4rem">
     <a class="mybutton" href="{% url 'allPrescribers' %}" style="display:inline; border: thick;border-style: solid;color: rgba(236,212,35,1.00);text-decoration: none;width: 4rem;padding-top: 7px;padding-bottom: 7px;padding-left: 3rem;padding-right: 3rem">Prescribers</a>
         
@@ -23,7 +25,7 @@
 <div class="row">
  <div class="text-center col-md-6 col-12">
    <h3>Why is this Information Important?&nbsp;</h3>
-     <p>Tools For Health Professionals &amp; Governmen Offices&nbsp;&nbsp;</p>
+     <p>Tools For Health Professionals &amp; Government Offices&nbsp;&nbsp;</p>
      <br>
    <a class="mybutton" href="{% url 'pdf' %}" role="button" style="text-decoration: none">Our Findings Page</a>
  </div>
@@ -40,20 +42,20 @@
 <div class="container">
 <div class="row">
  <div class="col-lg-3 col-md-6 col-12">
-   <h2>Lorem ipsum</h2>
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis accusamus praesentium eveniet ad unde doloremque ex officia eius ab quibusdam.</p>
+   <h1 style="text-align: center;">5%</h1>
+   <p style="text-align: center;">Perecentage of all prescriptions that are opioids</p>
  </div>
  <div class="col-lg-3 col-md-6 col-12">
-   <h2>Lorem ipsum</h2>
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, mollitia natus amet eligendi consequuntur. Veritatis ullam debitis voluptas repellat laboriosam.</p>
+   <h1 style="text-align: center;">595,191</h1>
+   <p style="text-align: center;">Total number of prescriptions that include Hydrocodone</p>
  </div>
  <div class="col-lg-3 col-md-6 col-12">
-   <h2> Lorem ipsum</h2>
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, error, itaque non vel architecto ratione obcaecati doloribus delectus illum harum?</p>
+   <h1 style="text-align: center;">80%</h1>
+   <p style="text-align: center;">Perecentage of prescribers that do prescribe opioids</p>
  </div>
  <div class="col-lg-3 col-md-6 col-12">
-   <h2>Lorem ipsum</h2>
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, nam voluptate accusantium nulla distinctio odit aliquam voluptatem ab. Earum.</p>
+   <h1 style="text-align: center;">22%</h1>
+   <p style="text-align: center;">Utah prescribers that had a total presciption count above the national average</p>
  </div>
 </div>
 </div>
@@ -98,7 +100,7 @@
 
      <div class="card-body">
        <h5 class="card-title">How Can I Contribute?&nbsp;&nbsp;</h5>
-       <p class="card-text">Learn more about the current drugs&nbsp;&nbsp;</p>
+       <p class="card-text">Learn more about the current drugs.</p>
        <br>
        <a href="{% url 'allDrugs'%}" class="mybutton">See Drugs</a>
          <br><br><br>
@@ -106,17 +108,17 @@
        <br>
        <a class="mybutton" href="{% url 'addPrescriber'%}">Register A Physician&nbsp;</a>
        <br><br><br>
-       <p class="card-text">Contact Us</p>
+       <p class="card-text">Want to get in contact with us?</p>
        <br>
        <a class="mybutton" href="#contactbottom">See Contact Information</a>
        <br><br><br>
-       <p class="card-text">Testimonials</p>
+       <p class="card-text">See what other people are saying.</p>
        <br>
        <a class="mybutton" href="#testimonials">See Testimonials</a>
        <br><br><br>
-       <p class="card-text">About Us</p>
+       <p class="card-text">Learn more about us here.</p>
        <br>
-       <a class="mybutton" href="#aboutUs">Learn More About Us</a>
+       <a class="mybutton" href="#aboutUs">About Us</a>
        <br><br>
      </div>
      

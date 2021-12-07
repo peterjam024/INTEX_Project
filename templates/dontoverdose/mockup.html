@@ -1,18 +1,14 @@
 {% extends 'base.html' %}
 {%load static %}
 {%block content%}
-<br><br>
-<h1>Add a new Prescriber! </h1>
+<br><br><br><br><br><br>
+<a href='https://www.freepik.com/vectors/business'>Business vector created by pikisuperstar - www.freepik.com</a>
+
+<h1>Add a new Consumer! </h1>
     <form action="{% url 'storePrescriber' %}" method="POST">
         {% csrf_token %}
         <table>
-            <tr>
-                <td>
-                    <!-- NPI --> 
-                    <label for='NPI'>Enter the NPI:</label>
-                    <input type="text" name='NPI' id='npi' placeholder="Enter the 10-digit NPI" autofocus required>
-                </td>
-            </tr>
+            
             <tr>
                 <td>
                     <!-- first name --> 
@@ -40,13 +36,25 @@
             </tr>
             <tr>
                 <td>
-                    <!-- credentials --> 
-                    {% comment %} <label for='prescriber_credentials'>Enter the credentials:</label>
-                    <input type="text" name='prescriber_credentials' id='credentials' required> {% endcomment %}
-
-                    <label for='prescriber_credentials'>Select the credentials:</label>
+                    <label for='prescriber_credentials'>Medical History:</label>
+                    <input name='prescriber_credentials' id='credentials' required>
+            
+                </td>
+            
+            </tr>
+            <tr>
+                <td>
+                    <label for='prescriber_credentials'>Income:</label>
+                    <input name='prescriber_credentials' id='credentials' value='0' required>
+            
+                </td>
+            
+            </tr>
+            <tr>
+                <td>
+                    <label for='prescriber_credentials'>Select visit type:</label>
                     <select name='prescriber_credentials' id='credentials' required>
-                        <option value= "ANP">ANP</option>
+                        <option value= "ANP">Checkup</option>
                         <option value= "BCENP">BCENP</option>
                         <option value= "CNM">CNM</option>
                         <option value= "CNP">CNP</option>
@@ -130,7 +138,7 @@
             <tr>
                 <td>
                     <!-- specialty --> 
-                    <label for='prescriber_specialty'>Enter the specialty:</label>
+                    <label for='prescriber_specialty'>Pre-existing conditions:</label>
                     <input type="text" name='prescriber_specialty' id='specialty' required>
                 </td>
             </tr>
@@ -146,7 +154,7 @@
                     <input type="radio" id='isopioidprescriber' name='False' value='FALSE'>
                     <label for="False">False</label> {% endcomment %}
 
-                    <label for='opioid_dealer'>Opioid Dealer?</label>
+                    <label for='opioid_dealer'>Regular client?</label>
                     <select name='opioid_dealer' id='isopioidprescriber' required>
                         <option value= "TRUE">True</option>
                         <option value= "FALSE">False</option>
@@ -156,8 +164,8 @@
             <tr>
                 <td>
                     <!-- TOTAL --> 
-                    <label for='total'>Enter the total number of prescriptions:</label>
-                    <input type="text" name='total' id='totalprescriptions' value='0' required>
+                    <label for='total'>Notes about client:</label>
+                    <input style="height:100px;width: 600px;font-size:14pt;" type="text" name='total' id='totalprescriptions'  required>
                 </td>
             </tr>
         </table>

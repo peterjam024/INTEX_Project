@@ -21,8 +21,13 @@ import webbrowser
 
 
 # Create your views here.
+
+def mockupView(request):
+    return render(request, "dontoverdose/mockup.html")
+
+
 def loadOurFindings(request):
-    a_website = "https://docs.google.com/document/d/1kl4OnH6r4-B4LD2-QD5-_3CJ6BoskUCfCL-C9bLug_o/edit?usp=sharing"
+    a_website = "https://docs.google.com/document/d/1jdTWnEdM16yZKozdAnC4ZI4xqDNZvIdNQNjqPncgl_0/edit"
 
     # Open url in a new page (“tab”) of the default browser, if possible
     webbrowser.open_new_tab(a_website)
